@@ -2,10 +2,8 @@
   .Header__container
     
     .Header__container__upper
-      .Header__container__upper__logo
-        %a
-          =link_to
-          = image_tag 'material/logo/logo.png', alt: 'header-logo', height: '40px', class: ''
+      %a
+        = link_to image_tag('material/logo/logo.png', class: 'Header__container__upper__logo', height: '40'), '/'
             
       .Header__container__upper__form
         -# = form_with(url: '#', method: :get, class: 'Form') do |form|

@@ -1,3 +1,117 @@
 .Main
   .Main__Visual
-  .M
+    .Container
+      .Container__Title
+        %h2 人生を変えるフリマアプリ
+      .Container__Subtitle
+        %p 
+          FURIMAは誰でも簡単に出品・購入できる
+          %br/
+          フリマアプリです
+      .Top__Btn
+        %a(href="#") 
+          = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: ''
+  .Main__Intro
+    %h2.Reason 
+      FURIMAが選ばれる3つの理由
+    %ul.Lists
+      %li.List
+        .List__Picture
+          %span.num 1
+          = image_tag 'material/pict/pict-reason-01.jpg', alt: 'notimage', height: '290', width: '290'
+        %h3.List__Discript
+          %span 3分
+          ですぐに
+        %p.List__Text
+          スマホで入力するだけで簡単に出品できる！
+      %li.List
+        .List__Picture
+          %span.num 2
+          = image_tag 'material/pict/pict-reason-02.jpg', alt: 'notimage', height: '290', width: '290'
+        %h3.List__Discript
+          %span シンプル
+          で使いやすい
+        %p.List__Text
+          めんどくさい登録は必要なく
+          %br/
+          検索も購入もスムーズ！
+      %li.List
+        .List__Picture
+          %span.num 3
+          = image_tag 'material/pict/pict-reason-03.jpg', alt: 'notimage', height: '290', width: '290'
+        %h3.List__Discript
+          手数料
+          %span 業界最安値
+        %p.List__Text
+          スマホで入力するだけで簡単に出品できる！
+  .Center
+    .Center__Inside
+      %h2.subtitle
+        会員数日本一位
+      %p.text
+        FURIMA、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        欲しかったあの商品に出会えるかもしれません。
+    .Btn
+  .Center__Feature
+    %h2.Feature 
+      FURIMAの特徴
+    %ul.Items
+      %li.Item
+        .Item__Image
+        = image_tag 'material/icon/icon-01.png', alt: 'notimage', height: '246', width: '160'
+        %h3.Item__Heading
+          簡単に売り買いできる
+        %p.Item__Text
+          スマホ一つで、いつでもど
+          %br/
+          こでも簡単に出品・購入が可能！
+      %li.Item
+        .Item__Image
+        = image_tag 'material/icon/icon-03.png', alt: 'notimage', height: '246', width: '160'
+        %h3.Item__Heading
+          売上金は即日振込みに対応
+        %p.Item__Text
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li.Item
+        .Item__Image
+        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+        %h3.Item__Heading
+          様々な支払いに対応
+        %p.Item__Text
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .Pickup__box
+    %h2.Pickup__Header
+      ピックアップカテゴリー
+    .Products__container
+      .Products__Header
+        %a(href="＃")
+          %h3.title
+            新規投稿商品
+      .Products__Lists
+      -# ↓ここに商品一覧を表示
+        .Products__List
+        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+  .Pickup__box
+    %h2.Pickup__Header
+      ピックアップブランド
+    .Products__container
+      .Products__Header
+        %a(href="＃")
+          %h3.title
+            アーカイブ
+      .Products__Lists
+      -# ↓ここに商品一覧を表示
+        .Products__List
+        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+  .Banner
+    .Inside
+      %h2.Inside__Title
+        だれでもかんたん、人生を変えるフリマアプリ
+      %p.Inside__Text
+        今すぐ無料ダウンロード！
+      .Inside__Icon

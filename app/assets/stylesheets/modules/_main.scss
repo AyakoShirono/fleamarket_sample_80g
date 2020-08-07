@@ -197,6 +197,10 @@ h2.Pickup__Header {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 h3.title {
   font-size: 24px;
   color: #3CCACE;
@@ -233,4 +237,21 @@ h2.Inside__Title {
 p.Inside__Text {
   text-shadow: 0 0 5 rgba(0,0,0,0.4);
   font-size: 35px;
+}
+
+.Btn {
+  display: flex;
+  margin: 24px 0 0 0;
+}
+
+.apple {
+  height: 65px;
+  width: 200px;
+  margin-right: auto;
+}
+
+.google {
+  height: 75px;
+  width: 200px;
+  margin-bottom: 30px;
 }

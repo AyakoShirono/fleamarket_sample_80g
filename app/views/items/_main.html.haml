@@ -8,9 +8,11 @@
           FURIMAは誰でも簡単に出品・購入できる
           %br/
           フリマアプリです
-      .Top__Btn
+      .Btn
         %a(href="#") 
-          = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: ''
+          = image_tag 'App_Store.svg', alt: 'notimage', class: 'apple'
+        %a(href="#") 
+          = image_tag 'google-play-badge.png', alt: 'notimage', class: 'google'
   .Main__Intro
     %h2.Reason 
       FURIMAが選ばれる3つの理由
@@ -54,7 +56,11 @@
         出品・購入回数も業界最多です！
         %br/
         欲しかったあの商品に出会えるかもしれません。
-    .Btn
+      .Btn
+        %a(href="#") 
+          = image_tag 'App_Store.svg', alt: 'notimage', height: '50', width: '210', class: 'apple'
+        %a(href="#") 
+          = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: 'google'
   .Center__Feature
     %h2.Feature 
       FURIMAの特徴
@@ -91,7 +97,6 @@
           %h3.title
             新規投稿商品
       .Products__Lists
-      -# ↓ここに商品一覧を表示
         .Products__List
         = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
         = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
@@ -104,7 +109,6 @@
           %h3.title
             アーカイブ
       .Products__Lists
-      -# ↓ここに商品一覧を表示
         .Products__List
         = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
         = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
@@ -114,4 +118,8 @@
         だれでもかんたん、人生を変えるフリマアプリ
       %p.Inside__Text
         今すぐ無料ダウンロード！
-      .Inside__Icon
+      .Btn
+        %a(href="#") 
+          = image_tag 'App_Store.svg', alt: 'notimage', height: '50', width: '210', class: 'apple'
+        %a(href="#") 
+          = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: 'google'

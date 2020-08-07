@@ -1,1 +1,34 @@
-h
+.Header
+  .Header__container
+    
+    .Header__container__upper
+      %a
+        = link_to image_tag('material/logo/logo.png', class: 'Header__container__upper__logo', height: '40'), '/'
+            
+      .Header__container__upper__form
+        -# = form_with(url: '#', method: :get, class: 'Form') do |form|
+        -#   = form.text_field :keyword, placeholder: 'キーワードから探す', class: 'Form__search'
+        -#   = form.submit '', class: 'Form__submit'
+        %form{action: '', method: 'get'}
+          %p.Form
+            %input{type: 'text', placeholder: 'キーワードから探す', name: 'search', class: 'Form__search'}
+            %input{type: 'image', alt:'search', src: 'material/icon/icon-search1.png', class: 'Form__submit'}
+              
+
+    .Header__container__nav
+      %li.Header__container__nav__dropdown
+        %ul.Header__container__nav__dropdown__category
+          カテゴリー
+        %ul.Header__container__nav__dropdown__brand
+          ブランド
+      %li.Header__container__nav__user-menu
+        %ul.Header__container__nav__user-menu__left
+          ログイン
+        %ul.Header__container__nav__user-menu__right
+          新規会員登録
+          
+        
+          
+      
+              
+              

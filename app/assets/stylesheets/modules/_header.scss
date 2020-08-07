@@ -1,0 +1,63 @@
+.Header__container {
+  height: 110px;
+  max-width: 1040px;
+  width: 100%;
+  background-color:white;
+  padding: 0 60px;
+}
+
+.Header__container__upper {
+  padding: 15px 0;
+  display: flex;
+  &__logo {
+    margin-right: 30px;
+    height: 40px;
+  }
+  &__form {
+    width: 100%;
+  }
+}
+
+.Form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  &__search{
+    height: 36px;
+    width: calc(100% - 26px);;
+    padding-left: 5px;
+
+  }
+  &__submit{
+    height: 36px;
+    width: 36px;
+    background-color: #4cd0cd;
+    border: none;
+  }
+}
+
+.Header__container__nav {
+  font-size: 14px;
+  padding-bottom: 15px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  &__dropdown {
+    display: flex;
+    &__category{
+      padding-right: 30px;
+    }
+    &__brand{
+      padding-left: 10px;
+    }
+  }
+  &__user-menu{
+    display: flex;
+    &__left{
+      padding-right: 10px;
+    }
+    &__right{
+      padding-left: 10px;
+    }
+  }
+}

@@ -9,8 +9,10 @@
         %form{action: '', method: 'get'}
           %p.Form
             %input{type: 'text', placeholder: 'キーワードから探す', name: 'search', class: 'Form__search'}
-            %input{type: 'image', alt:'search', src: 'material/icon/icon-search1.png', class: 'Form__submit'}
-              
+            -# %input{type: 'image', alt:'search', src: 'material/icon/icon-search1.png', class: 'Form__submit'}
+            %label.Form__submit
+              = image_tag 'material/icon/icon-search1.png', alt: '', height: '20', width: '', class: '.Form__submit__icon'
+              %input.Form__submit__btn{type: 'submit'}
     .Header__container__nav
       %ul.Header__container__nav__dropdown
         %li.Header__container__nav__dropdown__category

@@ -37,6 +37,12 @@
     width: 36px;
     background-color: #4cd0cd;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__btn {
+      display: none;
+    }
   }
 }
 

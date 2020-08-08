@@ -1,0 +1,27 @@
+%h2 個人情報登録
+= form_for @profile do |f|
+  = render "devise/shared/error_messages", resource: @profile
+  .field
+    = f.label :first_name, "姓"
+    %br
+    = f.text_field :first_name 
+  .field
+    = f.label :last_name, "名"
+    %br
+    = f.text_field :last_name
+  .field
+    = f.label :first_name_kana, "姓(カナ)"
+    %br
+    = f.text_field :first_name_kana
+  .field
+    = f.label :last_name_kana, "名(カナ)"
+    %br
+    = f.text_field :last_name_kana
+  .field
+    = f.label :birth_year, "生年月日（西暦）"
+    %br
+    = f.text_field :birth_year
+  .field
+    = f.label "生年月日"
+    %br
+    

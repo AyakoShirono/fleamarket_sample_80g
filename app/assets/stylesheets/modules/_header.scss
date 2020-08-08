@@ -1,16 +1,15 @@
 .Header {
   display: flex;
   justify-content: center;
+  &__container {
+    height: 110px;
+    max-width: 1040px;
+    width: 100%;
+    color: #333;
+    background-color:white;
+    padding: 0 60px;
+  }
 }
-.Header__container {
-  height: 110px;
-  max-width: 1040px;
-  width: 100%;
-  color: #333;
-  background-color:white;
-  padding: 0 60px;
-}
-
 .Header__container__upper {
   padding: 15px 0;
   display: flex;
@@ -72,12 +71,14 @@ a {
 }
 
 ul.Drop{
-  &__menu li {
-    // display: block;
-    position: relative;
-  }
   &__menu a {
     display: block;
+  }
+  &__menu a:hover {
+    color: lightsalmon;
+  }
+  &__menu li {
+    position: relative;
   }
   &__menu li:hover > ul {
     display: block;
@@ -96,16 +97,8 @@ ul.Drop{
   }
   &__menu ul li a {
     padding-left: 5px;
-    // font-weight: normal;
     text-decoration: none;
     line-height: 33px;
-    // background-position: center right;
-    // background-repeat: no-repeat;
-    // background-size: 18px;
-    // padding-right: 30px;
-  }
-  &__menu a:hover {
-    color: lightsalmon;
   }
   &__menu ul ul {
     margin: 0;

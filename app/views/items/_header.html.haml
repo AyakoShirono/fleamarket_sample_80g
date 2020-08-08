@@ -6,39 +6,77 @@
         = link_to image_tag('material/logo/logo.png', class: 'Header__container__upper__logo', height: '40'), '/'
             
       .Header__container__upper__form
-        -# = form_with(url: '#', method: :get, class: 'Form') do |form|
-        -#   = form.text_field :keyword, placeholder: 'キーワードから探す', class: 'Form__search'
-        -#   = form.submit '', class: 'Form__submit'
         %form{action: '', method: 'get'}
           %p.Form
             %input{type: 'text', placeholder: 'キーワードから探す', name: 'search', class: 'Form__search'}
             %input{type: 'image', alt:'search', src: 'material/icon/icon-search1.png', class: 'Form__submit'}
               
     .Header__container__nav
-      %li.Header__container__nav__dropdown
-        %ul.Header__container__nav__dropdown__category
-          %select{:name => "budget_d"} 
-            %option{:value => "0"} カテゴリー
-            %option{:value => "1"} レディース
-            %option{:value => "2"} メンズ
-            %option{:value => "3"} ベビー・キッズ
-            %option{:value => "4"} インテリア・住まい・小物
-            %option{:value => "5"} 本・音楽・ゲーム
-            %option{:value => "6"} おもちゃ・ホビー・グッズ
-            %option{:value => "7"} コスメ・香水・美容
-            %option{:value => "8"} 家電・スマホ・カメラ
-            %option{:value => "9"} スポーツ・レビュー
-            %option{:value => "10"} ハンドメイド
-            %option{:value => "11"} チケット
-            %option{:value => "12"} 自動車・オートバイ
-            %option{:value => "13"} その他
-            
-        %ul.Header__container__nav__dropdown__brand
+      %ul.Header__container__nav__dropdown
+        %li.Header__container__nav__dropdown__category
+          %ul.Drop__menu
+            %li 
+              %a(href="#") カテゴリー
+              %ul
+                %li
+                  %a(href="#") レディース
+                  %ul
+                    %li
+                      %a(href="#") トップス
+                      %ul
+                        %li
+                          %a(href="") Tシャツ
+                        %li
+                          %a(href="") Tシャツ
+                    %li
+                      %a(href="#") ジャケット/アウター
+                    %li
+                      %a(href="#") パンツ
+                    %li
+                      %a(href="#") スカート
+                    %li
+                      %a(href="#") ワンピース
+                    %li
+                      %a(href="#") 靴
+                    %li
+                      %a(href="#") ルームウェア/パジャマ
+                    %li
+                      %a(href="#") レッグウェア
+                    %li
+                      %a(href="#") 帽子
+                    %li
+                      %a(href="#") バッグ
+                    %li
+                      %a(href="#") アクセサリー
+                    %li
+                      %a(href="#") ヘアアクセサリー
+                    %li
+                      %a(href="#") 小物
+                    %li
+                      %a(href="#") 時計
+                    %li
+                      %a(href="#") ウィッグ/エクステ
+                    %li
+                      %a(href="#") 浴衣/水着
+                    %li
+                      %a(href="#") スーツ
+                    %li
+                      %a(href="#") スーツ/フォーマルドレス
+                    %li
+                      %a(href="#") マタニティ
+                    %li
+                      %a(href="#") その他
+                %li
+                  %a(href="#") メンズ
+                  %ul
+                    %li
+                      %a(href="#")
+        %li.Header__container__nav__dropdown__brand
           ブランド
-      %li.Header__container__nav__user-menu
-        %ul.Header__container__nav__user-menu__left
+      %ul.Header__container__nav__user-menu
+        %li.Header__container__nav__user-menu__left
           ログイン
-        %ul.Header__container__nav__user-menu__right
+        %li.Header__container__nav__user-menu__right
           新規会員登録
           
         

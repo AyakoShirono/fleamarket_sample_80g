@@ -76,10 +76,14 @@
         %li.Header__container__nav__dropdown__brand
           ブランド
       %ul.Header__container__nav__user-menu
-        %li.Header__container__nav__user-menu__left
-          ログイン
-        %li.Header__container__nav__user-menu__right
-          新規会員登録
+        - if user_signed_in?
+          %li.Header__container__nav__user-menu__left
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.Header__container__nav__user-menu__left
+            = link_to "ログイン", new_user_session_path
+          %li.Header__container__nav__user-menu__right
+            = link_to "新規会員登録", new_user_registration_path
           
         
           

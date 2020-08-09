@@ -1,0 +1,27 @@
+@mixin under-bar {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background-color: #3CCACE;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin font($sdSize:60px, $sdHeight:1.2) {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  font-size: $sdSize;
+  line-height: $sdHeight;
+  color: #fff;
+}
+
+@mixin discripts {
+  text-align: center;
+  font-size: 27px;
+  line-height: 1.4;
+  font-weight: bold;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  position: relative;
+}

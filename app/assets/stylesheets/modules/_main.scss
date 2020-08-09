@@ -1,3 +1,4 @@
+
 .Main {
   background-color: #ffffff;
   &__Visual {
@@ -19,44 +20,25 @@
   margin: 0 auto;
   padding: 35px 0 0 0;
   &__Title {
-    text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    font-size: 60px;
-    line-height: 1.2;
-    color: #ffffff;
+    @include font();
   }
 }
 
 .Container__Subtitle {
-  text-shadow: 0 0 5px rgba(0,0,0,0.4);
-  font-size: 18px;
-  color: #ffffff;
-  line-height: 1.7;
+  @include font(18px, 1.7);
   margin: 16px 0 0 0;
 }
 
 .Main__Intro {
   padding: 60px 20px;
 }
-// ↓にprefixを適用させる？
+
 h2.Reason {
-  text-align: center;
-  font-size: 26px;
-  line-height: 1.4;
-  font-weight: bold;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  position: relative;
+  @include discripts
 }
 
 h2.Reason::after {
-  content: "";
-  width: 70px;
-  height: 4px;
-  background-color: #3CCACE;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  @include under-bar
 }
 
 .Lists {
@@ -100,7 +82,7 @@ span.num{
   color: #ffffff;
 }
 
-span {
+span.stand-out {
   color: #3CCACE;
 }
 
@@ -132,26 +114,14 @@ span {
   padding: 60px 100px;
   background-color: #ffffff;
 }
-
+////mixin
 h2.Feature {
-  font-size: 27px;
-  text-align: center;
+  @include discripts;
   margin: 0 0 40px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  position: relative;
 }
 
 h2.Feature::after {
-  content: "";
-  width: 70px;
-  height: 4px;
-  background-color: #3CCACE;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  @include under-bar
 }
 
 .Items {

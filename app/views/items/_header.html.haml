@@ -78,6 +78,8 @@
       %ul.Header__container__nav__user-menu
         - if user_signed_in?
           %li.Header__container__nav__user-menu__left
+            = link_to "マイページ", "#" 
+          %li.Header__container__nav__user-menu__right
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.Header__container__nav__user-menu__left

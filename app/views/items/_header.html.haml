@@ -1,1 +1,33 @@
-h
+.Header
+  .Header__container
+    
+    .Header__container__upper
+      %a
+        = link_to image_tag('material/logo/logo.png', class: 'Header__container__upper__logo', height: '40'), '/'
+            
+      .Header__container__upper__form
+        %form{action: '', method: 'get'}
+          %p.Form
+            %input{type: 'text', placeholder: 'キーワードから探す', name: 'search', class: 'Form__search'}
+            %label.Form__submit
+              = image_tag 'material/icon/icon-search1.png', alt: '', height: '20', width: '', class: '.Form__submit__icon'
+              %input.Form__submit__btn{type: 'submit'}
+    .Header__container__nav
+      %ul.Header__container__nav__dropdown
+        %li.Header__container__nav__dropdown__category
+          %ul.Drop__menu
+            %li 
+              = link_to "カテゴリー", "#"
+        %li.Header__container__nav__dropdown__brand
+          ブランド
+      %ul.Header__container__nav__user-menu
+        - if user_signed_in?
+          %li.Header__container__nav__user-menu__left
+            = link_to "マイページ", "#" 
+          %li.Header__container__nav__user-menu__right
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.Header__container__nav__user-menu__left
+            = link_to "ログイン", new_user_session_path
+          %li.Header__container__nav__user-menu__right
+            = link_to "新規会員登録", new_user_registration_path

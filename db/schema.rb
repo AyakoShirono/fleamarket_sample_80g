@@ -10,17 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_094026) do
+ActiveRecord::Schema.define(version: 2020_08_08_135016) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
-    t.string "birth_year", null: false
-    t.string "birth_month", null: false
-    t.string "birth_day", null: false
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "zip_code", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
@@ -29,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_094026) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "birth_date", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

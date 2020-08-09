@@ -18,10 +18,33 @@
     %br
     = f.text_field :last_name_kana
   .field
-    = f.label :birth_year, "生年月日（西暦）"
+    = f.label :birth_date, "生年月日"
     %br
-    = f.text_field :birth_year
+    = f.date_select :birth_date, use_month_numbers: true, start_year: 1950, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
   .field
-    = f.label "生年月日"
+    = f.label :phone_number, "電話番号"
     %br
-    
+    = f.text_field :phone_number
+  .field
+    = f.label :zip_code, "郵便番号"
+    %br
+    = f.text_field :zip_code
+  .field
+    = f.label :prefecture, "都道府県"
+    %br
+    = f.text_field :prefecture
+  .field
+    = f.label :city, "市町村"
+    %br
+    = f.text_field :city
+  .field
+    = f.label :address, "番地"
+    %br
+    = f.text_field :address
+  .field
+    = f.label :building, "建物名"
+    %br
+    = f.text_field :building
+  .actions
+    = f.submit "SignUp"
+= render "devise/shared/links"

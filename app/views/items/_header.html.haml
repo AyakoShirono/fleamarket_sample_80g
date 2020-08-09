@@ -9,7 +9,6 @@
         %form{action: '', method: 'get'}
           %p.Form
             %input{type: 'text', placeholder: 'キーワードから探す', name: 'search', class: 'Form__search'}
-            -# %input{type: 'image', alt:'search', src: 'material/icon/icon-search1.png', class: 'Form__submit'}
             %label.Form__submit
               = image_tag 'material/icon/icon-search1.png', alt: '', height: '20', width: '', class: '.Form__submit__icon'
               %input.Form__submit__btn{type: 'submit'}
@@ -18,61 +17,7 @@
         %li.Header__container__nav__dropdown__category
           %ul.Drop__menu
             %li 
-              %a(href="#") カテゴリー
-              %ul
-                %li
-                  %a(href="#") レディース
-                  %ul
-                    %li
-                      %a(href="#") トップス
-                      %ul
-                        %li
-                          %a(href="") Tシャツ
-                        %li
-                          %a(href="") Tシャツ
-                    %li
-                      %a(href="#") ジャケット/アウター
-                    %li
-                      %a(href="#") パンツ
-                    %li
-                      %a(href="#") スカート
-                    %li
-                      %a(href="#") ワンピース
-                    %li
-                      %a(href="#") 靴
-                    %li
-                      %a(href="#") ルームウェア/パジャマ
-                    %li
-                      %a(href="#") レッグウェア
-                    %li
-                      %a(href="#") 帽子
-                    %li
-                      %a(href="#") バッグ
-                    %li
-                      %a(href="#") アクセサリー
-                    %li
-                      %a(href="#") ヘアアクセサリー
-                    %li
-                      %a(href="#") 小物
-                    %li
-                      %a(href="#") 時計
-                    %li
-                      %a(href="#") ウィッグ/エクステ
-                    %li
-                      %a(href="#") 浴衣/水着
-                    %li
-                      %a(href="#") スーツ
-                    %li
-                      %a(href="#") スーツ/フォーマルドレス
-                    %li
-                      %a(href="#") マタニティ
-                    %li
-                      %a(href="#") その他
-                %li
-                  %a(href="#") メンズ
-                  %ul
-                    %li
-                      %a(href="#")
+              = link_to "カテゴリー", "#"
         %li.Header__container__nav__dropdown__brand
           ブランド
       %ul.Header__container__nav__user-menu

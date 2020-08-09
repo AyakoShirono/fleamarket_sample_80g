@@ -225,3 +225,23 @@ p.Inside__Text {
   width: 200px;
   margin-bottom: 30px;
 }
+
+.ExhibitionBtn{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.ExhibitonBtn__Text {
+  color: #ffffff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  
+}

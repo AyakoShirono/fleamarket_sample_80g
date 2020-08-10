@@ -97,9 +97,17 @@
           %h3.title
             新規投稿商品
       .Products__Lists
-        .Products__List
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+        - @items.each do |item|
+          .Products__List
+            .Products__List__image
+              = image_tag item.image, alt: 'notimage', height: '160', width: '210'
+            .Products__List__text
+              %h3.name
+                = item.name
+              %h3.price
+                = item.price
+                %a
+                円
   .Pickup__box
     %h2.Pickup__Header
       ピックアップブランド
@@ -109,9 +117,16 @@
           %h3.title
             アーカイブ
       .Products__Lists
-        .Products__List
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+        - @items.each do |item|
+          .Products__List
+            .Products__List
+              .Products__List__image
+                = image_tag item.image, alt: 'notimage', height: '160', width: '210'
+              .Products__List__text
+                %h3.name
+                  = item.name
+                %h3.price
+                  = item.price
   .Banner
     .Inside
       %h2.Inside__Title

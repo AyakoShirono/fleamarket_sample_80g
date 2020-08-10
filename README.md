@@ -8,7 +8,7 @@
 |password|string|null: false|
 
 ## Association
-has_many :products
+has_many :items
 has_one :profile
 
 # profiles(本人情報) テーブル
@@ -32,7 +32,7 @@ has_one :profile
 ## Association
 belongs_to :user
 
-# products(商品) テーブル
+# items(商品) テーブル
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
@@ -49,14 +49,15 @@ has_many :images
 belongs_to :category
 belongs_to :brand
 belongs_to :size
+
 # images(商品イメージ) テーブル
 |Column|Type|Option|
 |------|----|------|
 |url|text|null: false|
-|product_id|integer|null: false foreign_key|
+|item_id|integer|null: false foreign_key|
 
 ## Association
-belongs_to :product
+belongs_to :item
 
 # cards(クレジットカード) テーブル
 |Column|Type|Option|
@@ -74,17 +75,17 @@ belongs_to :user
 |name|string|null: false|
 
 ## Association
-has_many :products
+has_many :items
 
 # orders(注文情報) テーブル
 |Column|Type|Option|
 |------|----|------|
-|product_id|integer|foreign_key null:false|
+|item_id|integer|foreign_key null:false|
 |user_id|integer|foreign_key null:false|
 
 ## Association
 belongs_to :user
-belongs_to :product
+belongs_to :item
 
 # categories(カテゴリー)テーブル
 |Column|Type|Option|
@@ -92,7 +93,7 @@ belongs_to :product
 |name|string|null: false|
 
 ## Association
-has_many :products
+has_many :items
 has_ancestry
 
 # shippings(発送) テーブル
@@ -104,7 +105,7 @@ has_ancestry
 |fee_burden|boolean|null: false|
 
 ## Association
-has_many :products
+has_many :items
 
 # brand(ブランド) テーブル
 |Column|Type|Option|
@@ -112,4 +113,4 @@ has_many :products
 |name|string|null: false|
 
 ## Association
-has_many :products
+has_many :items

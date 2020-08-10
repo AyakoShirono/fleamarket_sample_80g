@@ -98,8 +98,13 @@
             新規投稿商品
       .Products__Lists
         .Products__List
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
-        = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+          .Products__List__image
+          = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '246', width: '160'
+          .Products__List__text
+          %h3.name
+            test
+          %h3.price
+            10000円
   .Pickup__box
     %h2.Pickup__Header
       ピックアップブランド

@@ -1,0 +1,35 @@
+= render "header"
+.Item__contents
+  .Item__contents__container
+    = form_for @item do |f|
+      .Item__input-form
+        = f.fields_for :images do |i|
+          .Item__input-form__image
+            = i.file_field :src
+          = f.text_field :name, class: 'Item__input-form__text'
+          = f.text_field :price, class: 'Item__input-form__text'
+          = f.text_area :detail, size: '50x10', class: 'Item__input-form__text'
+          = f.text_area :condition, size: '50x10', class: 'Item__input-form__text'
+          = f.text_field :category_id, class: 'Item__input-form__text'
+          = f.text_field :brand_id, class: 'Item__input-form__text'
+          = f.text_field :size_id, class: 'Item__input-form__text'
+          = f.text_field :user_id, class: 'Item__input-form__text'
+        = f.submit
+      -# %input accept="image/png,image/jpeg" multiple="" type="file" autocomplete="off" tabindex="-1" class="sc-fKGOjr bYzLFW" style="display: none; user-select: auto;">
+  %p
+    出品画像
+    商品名
+    商品の説明
+    商品の詳細p
+    カテゴリー
+    
+    商品の状態
+    配送についてp
+    発送料の負担
+    発送元の地域
+    発送までの日数
+    価格p
+
+    出品する
+
+

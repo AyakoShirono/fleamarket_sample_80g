@@ -1,0 +1,14 @@
+.Item__contents {
+  &__container {
+  }
+}
+.Item__input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__image {
+  }
+  &__text {
+    display: block;
+  }
+}

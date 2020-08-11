@@ -1,7 +1,6 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-      t.text :image   #一覧表示のための仮カラムです、imageテーブルを作ったらこのカラムは削除してください
       t.string :name, null:false
       t.string :price, null:false
       t.text :detail, null:false

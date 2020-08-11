@@ -1,0 +1,49 @@
+.wrapper
+  = render "header"
+  .DetailMain
+    .Item__detail
+      .Item__detail__title
+        %h3
+          テスト商品
+      .Item__detail__upper
+        .Item__detail__upper__image
+          .Item__detail__upper__image__main
+            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '300', width: '220'
+          .Item__detail__upper__image__sub
+            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
+            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
+            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
+        .Item__detail__upper__text
+          %table{border: "1", class: "table-text"}
+            %tr
+              %td 出品者
+              %td チームG
+            %tr
+              %td カテゴリー
+              %td コスメ
+            %tr
+              %td ブランド
+              %td ???
+            %tr
+              %td 商品の状態
+              %td 使用済
+            %tr
+              %td 配送料の負担
+              %td 購入者負担
+            %tr
+              %td 配送方法
+              %td 郵便
+            %tr
+              %td 配送元地域
+              %td 東京都
+            %tr
+              %td 発送日の目安
+              %td 1〜2日
+      .Item__detail__price
+        %h3
+          ¥ 1,000 (税込)
+      = link_to '#' do
+        .Purchase__btn
+          %h3
+            購入画面へ進む
+  = render "footer"

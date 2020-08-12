@@ -18,6 +18,18 @@
           %ul.Drop__menu
             %li 
               = link_to "カテゴリー", "#"
+              %ul.Drop__menu__root
+                - @parents.roots.each do |parent|
+                  %li
+                    = link_to parent.name, "#"
+                    %ul
+                      - parent.children.each do |child|
+                        %li
+                          = link_to child.name, "#"
+                          %ul
+                            - child.children.each do |grandchild|
+                              %li
+                                = link_to grandchild.name, "#"
         %li.Header__container__nav__dropdown__brand
           ブランド
       %ul.Header__container__nav__user-menu

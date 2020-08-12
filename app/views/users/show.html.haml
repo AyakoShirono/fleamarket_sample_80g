@@ -1,0 +1,33 @@
+= render "items/header"
+.wrapper
+  .Background
+    .Main__Bar
+      .Main__Bar__Container
+        %h2
+          ここにユーザー名が入る
+      .Main__Bar__Contents 
+        %ul.Main__Bar__Tabs
+          %li.Main__Bar__Tabs__Lists
+            購入した商品
+          %li.Main__Bar__Tabs__Lists
+            出品した商品
+      .Main__Bar__Products 
+
+    .Side__Bar
+      %nav.Mypage__Nav
+        %ul.Mypage__Nav__Lists
+          %li.Mypage__Nav__List__Container
+            = link_to "ログアウト", new_user_session_path, method: :delete, class: 'Mypage__Nav__List__Container__Item' 
+          %li.Mypage__Nav__List__Container
+            = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Item'
+          %li.Mypage__Nav__List__Container
+            = link_to 'プロフィール変更', profiles_path(current_user), class: 'Mypage__Nav__List__Item'
+          %li.Mypage__Nav__List__Container
+            -# クレジット機能未実装のためリンクを仮置き
+            = link_to 'クレジットカード登録/変更', "#", class: 'Mypage__Nav__List__Item'
+          
+              
+                
+
+
+-# = render "items/footer"

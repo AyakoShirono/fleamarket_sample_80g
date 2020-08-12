@@ -9,24 +9,13 @@
   float: left;
   width: 700px;
   height: 100vh;
-}
-
-.Main__Bar__Container {
-  @include font(24px, 1.7);
-  padding: 20px 24px;
-  height: 150px;
-  width: 700px;
-  background: rgb(230, 222, 222);
-  text-align: center;
-}
-
-.Main__Bar__Contents {
-  &__Tabs {
-    width: 350px;
-    background: #fff;
+  &__Container {
+    @include font(24px, 1.7);
+    padding: 20px 24px;
     height: 150px;
-    display: flex;
-
+    width: 700px;
+    background: rgb(230, 222, 222);
+    text-align: center;
   }
 }
 
@@ -48,6 +37,16 @@
     width: 100px;
     bottom: 1px;
     background-color: #3CCACE;
+  }
+}
+
+.Main__Bar__Product {
+  display: flex;
+  &__List {
+    width: 50%;
+    background-color: #cfd1d1ad;
+    border: 1px solid #f5ecec94;
+    overflow: scroll;
   }
 }
 

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :users, only: [:show, :edit, :update, :destroy] 
+  resources :items
+
 end

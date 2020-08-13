@@ -22,7 +22,7 @@
       %nav.Mypage__Nav
         %ul.Mypage__Nav__Lists
           %li.Mypage__Nav__List__Container
-            = link_to "ログアウト", new_user_session_path, method: :delete, class: 'Mypage__Nav__List__Container__Item' 
+            = link_to "ログアウト", user_path(current_user), method: :delete, class: 'Mypage__Nav__List__Container__Item' 
           %li.Mypage__Nav__List__Container
             = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Item'
           %li.Mypage__Nav__List__Container

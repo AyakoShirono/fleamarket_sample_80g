@@ -25,7 +25,7 @@
           %li.Header__container__nav__user-menu__left
             = link_to "マイページ", user_path(current_user) 
           %li.Header__container__nav__user-menu__right
-            = link_to "ログアウト", destroy_user_session_path, method: :delete 
+            = link_to "ログアウト", user_path(current_user), method: :delete 
         - else
           %li.Header__container__nav__user-menu__left
             = link_to "ログイン", new_user_session_path 

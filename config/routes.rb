@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     get 'profiles', to: 'users/registrations#edit_profile'
   end
   root 'items#index'
-  resources :users, only: [:show, :destroy] 
+  resources :users, only: [:show, :edit, :update, :destroy] 
 end

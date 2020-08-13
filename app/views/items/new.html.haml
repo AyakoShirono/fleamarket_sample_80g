@@ -9,20 +9,26 @@
             = i.file_field :src, class: 'js-file'
             %span.js-remove
               削除
-          %p 商品名
-          = f.text_field :name, class: 'Item__input-form__text'
-          %p 価格
-          = f.text_field :price, class: 'Item__input-form__text'
-          %p 商品説明
-          = f.text_area :detail, size: '50x10', class: 'Item__input-form__text'
-          %p 商品の状態
-          = f.text_area :condition, size: '50x10', class: 'Item__input-form__text'
-          %p カテゴリー
-          = f.text_field :category_id, class: 'Item__input-form__text'
-          %p ブランド
-          = f.text_field :brand_id, class: 'Item__input-form__text'
-          %p サイズ
-          = f.text_field :size_id, class: 'Item__input-form__text'
-          %p ユーザー仮
-          = f.text_field :user_id, class: 'Item__input-form__text'
-        = f.submit 
+      = f.text_field :name, class: 'Item__input-form'
+      
+      = f.text_field :price, class: 'Item__input-form'
+      
+      = f.text_area :detail, size: '50x10', class: 'Item__input-form'
+      
+      = f.text_area :condition, size: '50x10', class: 'Item__input-form'
+      
+      = f.text_field :category_id, class: 'Item__input-form'
+      
+      = f.text_field :brand_id, class: 'Item__input-form'
+      
+      = f.text_field :size_id, class: 'Item__input-form'
+      
+      = f.text_field :user_id, class: 'Item__input-form'
+
+      = f.fields_for :shipping do |s|
+        = s.text_field :method, class: 'Item__input-form'
+        = s.text_field :prefecture_from, class: 'Item__input-form'
+        = s.text_field :period_before_shipping, class: 'Item__input-form'
+        = s.text_field :fee_burden, class: 'Item__input-form'
+      
+      = f.submit 

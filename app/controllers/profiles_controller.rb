@@ -9,8 +9,7 @@ class ProfilesController < ApplicationController
     profile.update(profile_params)
     redirect_to user_path
   end
-
-  private
+  
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :zip_code, :prefecture, :city, :address, :building)
   end

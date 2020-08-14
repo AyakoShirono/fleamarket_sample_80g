@@ -26,20 +26,16 @@
     border: 2px solid #cfd1d1ad;
     font-weight: bold;
     padding: 25px 60px;
-  }
-}
-
-.Main__Bar__Tabs {
-  
-  &__Lists {
-    width: 100%;
-    border: left;
-    text-align: center;
-    content: "";
-    height: 4px;
-    width: 100px;
-    bottom: 1px;
-    background-color: #3CCACE;
+    &__Lists {
+      width: 100%;
+      border: left;
+      text-align: center;
+      content: "";
+      height: 4px;
+      width: 100px;
+      bottom: 1px;
+      background-color: #3CCACE;
+    }
   }
 }
 

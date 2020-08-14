@@ -1,5 +1,5 @@
 = render 'items/header'
-%h2 個人情報登録
+%h2 プロフィール変更
 = form_with(model: @profile, local: true) do |f|
   = render "devise/shared/error_messages", resource: @profile
   .field
@@ -47,5 +47,5 @@
     %br
     = f.text_field :building
   .actions
-    = f.submit "SignUp"
-= render "devise/shared/links"
+    = f.submit "変更する"
+-# = render "devise/shared/links"

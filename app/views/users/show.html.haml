@@ -26,7 +26,7 @@
           %li.Mypage__Nav__List__Container
             = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Item'
           %li.Mypage__Nav__List__Container
-            = link_to 'プロフィール変更', profiles_path(current_user), class: 'Mypage__Nav__List__Item'
+            = link_to 'プロフィール変更', edit_profile_path(current_user.profile.id), class: 'Mypage__Nav__List__Item'
           %li.Mypage__Nav__List__Container
             -# クレジット機能未実装のためリンクを仮置き
             = link_to 'クレジットカード登録/変更', "#", class: 'Mypage__Nav__List__Item'

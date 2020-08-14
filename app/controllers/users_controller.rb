@@ -1,21 +1,21 @@
 class UsersController < ApplicationController
 
   def show
+    profile = Profile.find(params[:id])
+    user = User.find(params[:id])
   end
 
   def edit
-    @user = User.find(user[:id])
+    @user = User.find(current_user)
   end
 
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
-    sign_in(user, bypass: true)
-    redirect_to user_path(user.id)
+    current_user.update(user_params)
+    sign_in(current_user, bypass: true)
+    redirect_to user_path
   end
 
   def destroy
-    user = User.find(params[:id])
     sign_out(current_user)
   end
  

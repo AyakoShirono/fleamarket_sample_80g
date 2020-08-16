@@ -13,11 +13,13 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_shipping
-    @item.user = current_user
+    @category_id = @item.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
       if @item.save
         redirect_to root_path
@@ -38,7 +40,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :brand_id, :size_id, :user_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id])
+    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand_id, :size_id, :user_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id])
     
   end
 

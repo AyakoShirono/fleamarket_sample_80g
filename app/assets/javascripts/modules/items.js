@@ -22,6 +22,7 @@ $(document).on('turbolinks:load', ()=> {
   $('#item-image').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
+// 残骸のif(!file){~ 等
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);

@@ -19,7 +19,7 @@
             %li 
               = link_to "カテゴリー", "#"
               %ul.Drop__menu__root
-                -# - @parents.roots.each do |parent|
+                - @parents.roots.each do |parent|
                   %li
                     = link_to parent.name, "#"
                     %ul

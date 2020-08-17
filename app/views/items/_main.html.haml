@@ -143,7 +143,7 @@
           = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: 'google'
       
       = if user_signed_in?
-        = link_to '#', class:'ExhibitionBtn' do
+        = link_to new_item_path, class:'ExhibitionBtn' do
           .ExhibitonBtn__Text
             出品する
             = image_tag 'material/icon/icon_camera.png', alt: 'notimage', height: '55', width: '55'

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'profiles', to: 'users/registrations#new_profile'
     post 'profiles', to: 'users/registrations#create_profile'
+    get 'profiles', to: 'users/registrations#edit_profile'
   end
   root 'items#index'
 
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
     end
   end
     
-
+  resources :users, only: [:show, :edit, :update, :destroy] 
+  resources :profiles, only: [:edit, :update]
 end

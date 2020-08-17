@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase]
+  before_action :set_item, only: [:show, :buy, :purchase]
 
   def index
     @items = Item.all
@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     if card.blank?
       redirect_to controller: "cards", action: 'new'
     end
-    @item = Item.find(params[:id])
   end
 
   def purchase

@@ -8,8 +8,17 @@ Rails.application.routes.draw do
     get 'profiles', to: 'users/registrations#edit_profile'
   end
   root 'items#index'
+
+  resources :cards, only: [:new, :create, :show, :destroy]
+
+  resources :items do
+    member do
+      post 'purchase'
+      get 'purchased'
+      get 'buy'
+    end
+  end
+    
   resources :users, only: [:show, :edit, :update, :destroy] 
   resources :profiles, only: [:edit, :update]
-  resources :items
-
 end

@@ -89,59 +89,62 @@
         %p.Item__Text
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   .Pickup__box
-    %h2.Pickup__Header
-      ピックアップカテゴリー
-    .Products__container
-      .Products__Header
-        = link_to '#' do
-          %h3.title
-            新規投稿商品
-      .Products__Lists
-        - @items.each do |item|
-          .Products__List
-            .Products__List__image
-              = image_tag item.image, alt: 'notimage', height: '160', width: '210'
-            .Products__List__text
-              %h3.name
-                = item.name
-              %h3.price
-                = item.price
-                %a
-                円
-  .Pickup__box
-    %h2.Pickup__Header
-      ピックアップブランド
-    .Products__container
-      .Products__Header
-        = link_to '#' do
-          %h3.title
-            アーカイブ
-      .Products__Lists
-        - @items.each do |item|
-          .Products__List
-            .Products__List
-              .Products__List__image
-                = image_tag item.image, alt: 'notimage', height: '160', width: '210'
-              .Products__List__text
-                %h3.name
-                  = item.name
-                %h3.price
-                  = item.price
-                  %a
-                  円
+    -# %h2.Pickup__Header
+    -#   ピックアップカテゴリー
+    -# .Products__container
+    -#   .Products__Header
+    -#     = link_to '#' do
+    -#       %h3.title
+    -#         新規投稿商品
+    -#   .Products__Lists
+    -#     - @items.each do |item|
+    -#       .Products__List
+    -#         .Products__List__image
+    -#           = image_tag item.image, alt: 'notimage', height: '160', width: '210'
+    -#         .Products__List__text
+    -#           %h3.name
+    -#             = item.name
+    -#           %h3.price
+    -#             = item.price
+    -#             %a
+    -#             円
+  -# .Pickup__box
+  -#   %h2.Pickup__Header
+  -#     ピックアップブランド
+  -#   .Products__container
+  -#     .Products__Header
+  -#       = link_to '#' do
+  -#         %h3.title
+  -#           アーカイブ
+  -#     .Products__Lists
+  -#       - @items.each do |item|
+  -#         .Products__List
+  -#           .Products__List
+  -#             .Products__List__image
+  -#               = image_tag item.image, alt: 'notimage', height: '160', width: '210'
+  -#             .Products__List__text
+  -#               %h3.name
+  -#                 = item.name
+  -#               %h3.price
+  -#                 = item.price
+  -#                 %a
+  -#                 円
   .Banner
     .Inside
       %h2.Inside__Title
         だれでもかんたん、人生を変えるフリマアプリ
       %p.Inside__Text
         今すぐ無料ダウンロード！
+      
       .Btn
         = link_to '#' do
           = image_tag 'App_Store.svg', alt: 'notimage', height: '50', width: '210', class: 'apple'
         = link_to '#' do
           = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: 'google'
-      = link_to '#', class:'ExhibitionBtn' do
-        .ExhibitonBtn__Text
-          出品する
-          = image_tag 'material/icon/icon_camera.png', alt: 'notimage', height: '55', width: '55'
+      
+      = if user_signed_in?
+        = link_to '#', class:'ExhibitionBtn' do
+          .ExhibitonBtn__Text
+            出品する
+            = image_tag 'material/icon/icon_camera.png', alt: 'notimage', height: '55', width: '55'
 

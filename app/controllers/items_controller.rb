@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :purchase]
 
   def index
     @items = Item.all
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def buy
@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
     card = current_user.card
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
     Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
@@ -26,6 +25,10 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

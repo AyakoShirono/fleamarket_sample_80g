@@ -24,8 +24,7 @@ class CardsController < ApplicationController
 
   def destroy
     card = current_user.card
-    if card.blank?
-    else
+    if card.present?
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete

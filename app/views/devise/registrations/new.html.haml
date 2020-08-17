@@ -1,32 +1,44 @@
-= render "items/header"
+= render 'items/l-header'
 .Box
   .Box__form
     .Box__form__text
-      %h2 新規登録
+      %h2 
+        新規登録
     .Box__form__main
       = form_for(resource, as: resource_name, url: registration_path(resource_name),) do |f|
         = render "devise/shared/error_messages", resource: @user
-        .field
-          = f.label :nickname, "ユーザー名 *必須"
-          %br/
-          = f.text_field :nickname, autofocus: true, autocomplete: "nickname *必須"
-        .field
-          = f.label :email, "メールアドレス *必須"
-          %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email"
-        .field
-          = f.label :password, "パスワード *必須"
-          - if @minimum_password_length
-            %em
-              (#{@minimum_password_length} 文字以内)
-          %br/
-          = f.password_field :password, autocomplete: "new-password"
-        .field
-          = f.label :password_confirmation, "パスワード(確認用) *必須"
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password"
-        .actions
-          = f.submit "次に進む"
+        .Field
+          .Field__Text
+            = f.label :nickname, "ユーザー名", class: "Field__Title"
+            %h2.form-require
+              必須
+            %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname *必須", placeholder: "FRIMA太郎", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :email, "メールアドレス", class: "Field__Title"
+            %h2.form-require
+              必須
+            %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :password, "パスワード", class: "Field__Title"
+            %h2.form-require
+              必須
+            - if @minimum_password_length
+              %em
+            %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 文字以上", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :password_confirmation, "パスワード(確認用)", class: "Field__Title"
+            %h2.form-require
+              必須
+            %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "同じパスワードを入力してください", class: "text-form"
+        .Actions
+          = f.submit "次に進む", class: "Actions__Btn"
       .Box__info
         %h2.Box__info__text ログインはこちら
         %h2.Box__info__arrow ⬇︎

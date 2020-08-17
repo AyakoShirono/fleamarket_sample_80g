@@ -25,3 +25,12 @@
   padding-bottom: 15px;
   position: relative;
 }
+
+@mixin form-input($wsize:350px) {
+  height: 50px;
+  width: $wsize;
+  font-size: 15px;
+  color: #1c1d1f83;
+  border-radius: 5px;
+  border: 1px solid;
+}

@@ -34,3 +34,32 @@
   border-radius: 5px;
   border: 1px solid;
 }
+
+@mixin template {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+@mixin background {
+  margin: 40px auto 0;
+  width: 1030px;
+  height: 100%;
+}
+
+@mixin edit-container {
+  background: #fff;
+  float: left;
+  width: 700px;
+  height: 100vh;
+}
+
+@mixin edit-box($bcolor:rgb(230, 222, 222)) {
+  padding: 20px 24px;
+  height: 150px;
+  width: 700px;
+  background: $bcolor;
+  text-align: center;
+}

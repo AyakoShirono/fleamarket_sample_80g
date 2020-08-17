@@ -1,52 +1,51 @@
+= render "items/header"
 .wrapper
-  = render "items/header"
-  .Background
-    .Main__Bar
-      .Main__Bar__Container
+  .Background-Edit
+    .Main__Edit__Bar
+      .Main__Edit__Bar__Container
         %h2
           ユーザー情報変更
         = form_with(model: @user, local: true) do |f|
           = render "devise/shared/error_messages", resource: resource
-          .field
-            = f.label :email　
-            %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .Field
+            .Field__Text
+              = f.label :email
+              %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-form"
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}
-          .field
-            = f.label :password
-            %i.guide 
-              (変更しない場合はそのままにしてください)
+          .Field
+            .Field__Text
+              = f.label :password
+              %i
             %br/
-            = f.password_field :password, autocomplete: "new-password"
+            = f.password_field :password, autocomplete: "new-password", class: "text-form"
             - if @minimum_password_length
               %br/
               %em
                 = @minimum_password_length
                 文字以上
-          .field
-            = f.label :password_confirmation
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password"
-          .field
-            = f.label :current_password
-            %i.guide (同じパスワードを入力してください)
-            %br/
-            = f.password_field :current_password, autocomplete: "current-password"
-          .actions
-            = f.submit "変更する"
-        %h3 Cancel my account
-        %p
-          Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-        = link_to "Back", :back
+          .Field
+            .Field__Text
+              = f.label :password_confirmation
+              %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "text-form"
+          .Field
+            .Field__Text
+              = f.label :current_password
+              %i.guide (同じパスワードを入力してください)
+              %br/
+            = f.password_field :current_password, autocomplete: "current-password", class: "text-form"
+          .Actions
+            = f.submit "変更する", class: "Actions__Btn"
     .Side__Bar
       %nav.Mypage__Nav
         %ul.Mypage__Nav__Lists
           %li.Mypage__Nav__List__Container
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Mypage__Nav__List__Item' 
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Mypage__Nav__List__Item" 
           %li
-            = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Item'
+            = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Container__Item'
           %li
-            = link_to 'プロフィール変更', "users/registrations#edit_profile", class: 'Mypage__Nav__List__Item'
+            = link_to 'プロフィール変更', "users/registrations#edit_profile", class: "Mypage__Nav__List__Item" 
 -# = render 'items/footer'

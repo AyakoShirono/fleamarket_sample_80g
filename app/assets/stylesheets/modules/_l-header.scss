@@ -1,0 +1,11 @@
+.L-Header {
+  height: 110px;
+  &__Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    &__Logo {
+    }
+  }
+}

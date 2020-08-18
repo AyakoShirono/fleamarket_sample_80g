@@ -144,8 +144,9 @@
           = image_tag 'App_Store.svg', alt: 'notimage', height: '50', width: '210', class: 'apple'
         = link_to '#' do
           = image_tag 'google-play-badge.png', alt: 'notimage', height: '80', width: '220', class: 'google'
-      = link_to new_item_path, class:'ExhibitionBtn' do
-        .ExhibitonBtn__Text
-          出品する
-          = image_tag 'material/icon/icon_camera.png', alt: 'notimage', height: '55', width: '55'
+      - if user_signed_in?
+        = link_to new_item_path, class:'ExhibitionBtn' do
+          .ExhibitonBtn__Text
+            出品する
+            = image_tag 'material/icon/icon_camera.png', alt: 'notimage', height: '55', width: '55'
 

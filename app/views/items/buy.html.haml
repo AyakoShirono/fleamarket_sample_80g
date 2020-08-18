@@ -1,6 +1,29 @@
-購入確認ページ
-= @item.name
-= @item.price
-= link_to purchase_item_path, method: :post do
-  .purchase-btn
-    購入する
+.wrapper
+  .Purchase-Header
+    = link_to image_tag('material/logo/logo.png', class: 'L-Head', height: '50', width: '180', ), root_path
+  .Purchase__Container
+    %h2.purchase-title
+      購入内容の確認
+    .Purchase__Container__Box
+      .Products__Over-view
+        .Products__Image
+          = image_tag @item.image, alt: 'notimage', height: '140', width: '180'
+        .Products__Name
+          = @item.name
+          .Products__Price
+            ¥
+            = @item.price
+    .Purchase__Container__Box
+      .Products__Over-view__Total
+        %span.purchase-text 支払い金額
+        ¥
+        = @item.price
+    .Purchase__Container__Box
+      .Products__Over-view
+        = link_to "カード情報確認はこちら", card_path, class: "card-infomation"
+    .Purchase__Container__Box
+      .Products__Over-view
+        = link_to purchase_item_path, method: :post do
+          .Products__Buy__Btn
+            購入する
+            

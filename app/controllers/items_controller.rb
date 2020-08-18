@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  require "payjp"
   before_action :set_item, only: [:show, :buy, :purchase]
 
   def index
@@ -12,6 +14,11 @@ class ItemsController < ApplicationController
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to controller: "cards", action: 'new'
+    elsif
+      Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
+      @item.update(buyer_id: current_user.id)
+    else
+      redirect_to root_path
     end
   end
 

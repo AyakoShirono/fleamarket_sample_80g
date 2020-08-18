@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_08_10_095216) do
-
-ActiveRecord::Schema.define(version: 2020_08_12_055726) do
-
+ActiveRecord::Schema.define(version: 2020_08_16_162849) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -34,19 +30,17 @@ ActiveRecord::Schema.define(version: 2020_08_12_055726) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image"
     t.string "name", null: false
     t.string "price", null: false
     t.text "detail", null: false
     t.integer "condition", null: false
-    t.integer "category_id", null: false
+    t.string "category_id", null: false
     t.integer "brand_id", null: false
     t.integer "size_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-ActiveRecord::Schema.define(version: 2020_08_08_135016) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -75,6 +69,12 @@ ActiveRecord::Schema.define(version: 2020_08_08_135016) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_shippings_on_item_id"
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

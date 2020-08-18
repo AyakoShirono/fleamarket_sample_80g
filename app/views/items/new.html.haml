@@ -1,5 +1,6 @@
 .Item__contents
   .Item__contents__container
+    %p 商品画像 
     %p 10枚までアップロードできます
     = form_for @item do |f|
       .Item__input-form#item-image
@@ -18,7 +19,7 @@
         -if @item.persisted?
           %div.js-file_group{data: {index: "= @item.images.count"}}
             = file_field_tag :src, name: 'item[images_attributes][#{@item.images.count}][src]', class: 'js-file'
-            %div.js-remove
+            %span.js-remove
               削除
       %p 商品名
       = f.text_field :name, class: 'Item__input-form'
@@ -41,7 +42,7 @@
       %p ブランド
       = f.text_field :brand, class: 'Item__input-form'
       %p サイズ
-      = f.collection_select :size_id, Size.all, :id, :name, class: 'Item__input-form'
+      = f.collection_select :size_id, Size.all, :id, :name, include_blank: '選択してください', class: 'Item__input-form'
       -# %p ユーザー仮
       -# = f.text_field :user_id, class: 'Item__input-form'
       %p 発送について
@@ -49,10 +50,10 @@
         %p 発送方法
         = s.select :method, [['未定'], ['らくらくメルカリ便'], ['ゆうゆうメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定型、不定型)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'], ['ゆうパケット']], class: 'Item__input-form'
         %p 発送元
-        = s.collection_select :prefecture_from, Prefecture.all, :id, :name, class: 'Item__input-form'
+        = s.collection_select :prefecture_from, Prefecture.all, :id, :name, include_blank: '選択してください', class: 'Item__input-form'
         %p 発送までの日数
-        = s.select :period_before_shipping, [['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], class: 'Item__input-form'
+        = s.select :period_before_shipping, [['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], include_blank: '選択してください', class: 'Item__input-form'
         %p 送料負担
-        = s.select :fee_burden, [['送料込み (出品者負担)'], ['着払い(購入者負担)']], class: 'Item__input-form'
+        = s.select :fee_burden, [['送料込み (出品者負担)'], ['着払い(購入者負担)']], include_blank: '選択してください', class: 'Item__input-form'
       
       = f.submit 

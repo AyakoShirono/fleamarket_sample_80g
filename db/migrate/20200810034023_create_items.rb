@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :detail, null:false
       t.integer :condition, null:false   #modelでenum設定が必要
       t.string :category_id, null:false, foreign_key: true
-      t.string :brand,  null:false, foreign_key: true
+      t.string :brand
       t.integer :size_id, null:false, foreign_key: true
       t.integer :user_id, null:false, foreign_key: true
       t.timestamps

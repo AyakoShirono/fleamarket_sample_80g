@@ -13,10 +13,11 @@ class Size < ActiveHash::Base
     {id: 28, name: '28.5cm'},{id: 29, name: '29cm'},{id: 30, name: '29.5cm'},
     {id: 31, name: '30cm'},{id: 32, name: '30.5cm'},{id: 33, name: '31cm以上'},
     {id: 34, name: '60cm以下'}, {id: 35, name: '70cm'}, {id: 36, name: '80cm'}, 
-    {id: 37 name: '90cm'}, {id: 38, name: '95cm'}, {id: 39, name: '100cm'}, 
+    {id: 37, name: '90cm'}, {id: 38, name: '95cm'}, {id: 39, name: '100cm'}, 
     {id: 40, name: '110cm'}, {id: 41, name: '120cm'}, {id: 42, name: '130cm'}, 
     {id: 43, name: '140cm'}, {id: 44, name: '150cm'}, {id: 45, name: '160cm以上'}, 
     {id: 46, name: '10.5cm以下'}, {id: 47, name: '11cm,11.5cm'}, {id: 48, name: '12cm,12.5cm'}, 
     {id: 49, name: '13cm,13.5cm'}, {id: 50, name: '14cm,14.5cm'}, {id: 51, name: '15cm,15.5cm'}, 
     {id: 52, name: '16cm,16.5cm'}, {id: 53, name: '17cm以上'}, {id: 54, name: 'その他'}
   ]
+end

@@ -38,10 +38,10 @@
               = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
               %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
 
-      -# %p ブランド
-      -# = f.text_field :brand_id, class: 'Item__input-form'
+      %p ブランド
+      = f.text_field :brand, class: 'Item__input-form'
       %p サイズ
-      = f.text_field :size_id, class: 'Item__input-form'
+      = f.collection_select :size_id, Size.all, :id, :name, class: 'Item__input-form'
       -# %p ユーザー仮
       -# = f.text_field :user_id, class: 'Item__input-form'
       %p 発送について

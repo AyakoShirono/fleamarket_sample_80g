@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_074912) do
     t.text "detail", null: false
     t.integer "condition", null: false
     t.string "category_id", null: false
-    t.integer "brand_id", null: false
+    t.string "brand"
     t.integer "size_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

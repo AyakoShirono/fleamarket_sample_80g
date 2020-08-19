@@ -71,3 +71,31 @@
   color: white;
   background-color: lightseagreen;
 }
+
+.card__detail {
+  background-color: lightgrey;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-card__content {
+  text-align: center;
+  margin: 40px 0;
+  background-color: white;
+  padding: 40px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.customer-card__content {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-red {
+  color: white;
+  background-color: lightseagreen;
+  margin-top: 40px;
+}

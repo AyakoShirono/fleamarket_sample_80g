@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  require "payjp"
+  # require "payjp"
   before_action :set_item, only: [:show, :buy, :purchase]
 
   def index

@@ -1,56 +1,87 @@
+= render 'items/l-header'
 .Box
   .Box__form
     .Box__form__text
-      %h2 個人情報登録
+      %h2 
+        プロフィール新規登録
     .Box__form__main
       = form_for @profile do |f|
         = render "devise/shared/error_messages", resource: @profile
-        .field
-          = f.label :first_name, "姓 *必須"
+        .Field
+          .Field__Text
+            = f.label :first_name, "姓"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :first_name, placeholder: "FRIMA", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :last_name, "名"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :last_name, placeholder: "太郎", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :first_name_kana, "姓(カナ)"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :first_name_kana, placeholder: "フリマ", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :last_name_kana, "名(カナ)"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :last_name_kana, placeholder: "タロウ", class: "text-form"
+        .Field
+          = f.label :birth_date, "生年月日"
           %br
-          = f.text_field :first_name 
-        .field
-          = f.label :last_name, "名 *必須"
-          %br
-          = f.text_field :last_name
-        .field
-          = f.label :first_name_kana, "姓(カナ) *必須"
-          %br
-          = f.text_field :first_name_kana
-        .field
-          = f.label :last_name_kana, "名(カナ) *必須"
-          %br
-          = f.text_field :last_name_kana
-        .field
-          = f.label :birth_date, "生年月日 *必須"
-          %br
-          = f.date_select :birth_date, use_month_numbers: true, start_year: 1950, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
-        .field
-          = f.label :phone_number, "電話番号"
-          %br
-          = f.text_field :phone_number
-        .field
-          = f.label :zip_code, "郵便番号 *必須"
-          %br
-          = f.text_field :zip_code
-        .field
-          = f.label :prefecture, "都道府県 *必須"
-          %br
-          = f.text_field :prefecture
-        .field
-          = f.label :city, "市区町村 *必須"
-          %br
-          = f.text_field :city
-        .field
-          = f.label :address, "番地 *必須"
-          %br
-          = f.text_field :address
-        .field
-          = f.label :building, "建物名"
-          %br
-          = f.text_field :building
-        .actions
-          = f.submit "サインアップ"
+          .Field__Text__data
+            = f.date_select :birth_date, {use_month_numbers: true, start_year: 1950, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, { class: "date-input" }
+        .Field
+          .Field__Text
+            = f.label :phone_number, "電話番号"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :phone_number, placeholder: "123456789", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :zip_code, "郵便番号"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :zip_code, placeholder: "123-4567", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :prefecture, "都道府県"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :prefecture, placeholder: "東京都", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :city, "市区町村"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :city, placeholder: "品川区", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :address, "番地"
+            %h2.form-require
+              必須
+            %br
+          = f.text_field :address, placeholder: "1-1-1", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :building, "建物名"
+            %br
+          = f.text_field :building, placeholder: "建物名", class: "text-form"
+        .Actions
+          = f.submit "登録する", class: "Actions__Btn"
     .Box__info
       %h2.Box__info__text ログインはこちら
       %h2.Box__info__arrow ⬇︎

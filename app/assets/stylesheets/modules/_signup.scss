@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 110px);
   background-color: #f5f5f5;
+  overflow: scroll;
   &__form {
     font-size: 20px;
     width: 700px;
@@ -38,7 +38,7 @@
       display: inline-block;
       padding: 0.5em 1em;
       text-decoration: none;
-      background: #668ad8;
+      background: #3CCACE;
       color: #FFF;
       border-bottom: solid 4px #627295;
       border-radius: 3px;
@@ -83,6 +83,10 @@
   color: #aab2c47e;
   border-radius: 5px;
   border: 1px solid ;
+  @include form-input
+}
+.date-input {
+  @include form-input(115px);
 }
 
 .Actions {
@@ -97,4 +101,9 @@
     border: none;
     color: #f5f5f5;
   }
+}
+
+h2.nav-text {
+  font-size: 25px;
+  font-weight: bold;
 }

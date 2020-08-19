@@ -1,21 +1,18 @@
+.wrapper {
+  background: rgba(212, 212, 212, 0.425);
+  height: 100vh;
+}
+
 .Background {
-  background-color: rgb(221, 219, 219);
-  margin: 40px auto 0;
-  width: 1020px;
+  @include background 
 }
 
 .Main__Bar {
-  background: rgba(250, 242, 242, 0.507);
-  float: left;
-  width: 700px;
-  height: 100vh;
+  @include edit-container;
   &__Container {
-    @include font(24px, 1.7);
-    padding: 20px 24px;
-    height: 150px;
-    width: 700px;
-    background: rgb(230, 222, 222);
-    text-align: center;
+    @include edit-box;
+    background-image: url('material/pict/bg-appBanner-pict.jpg');
+    background-size: cover;
   }
   &__Tabs {
     width: 100%;
@@ -27,14 +24,8 @@
     font-weight: bold;
     padding: 25px 60px;
     &__Lists {
-      width: 100%;
-      border: left;
+      border-bottom: 1px solid #333;
       text-align: center;
-      content: "";
-      height: 4px;
-      width: 100px;
-      bottom: 1px;
-      background-color: #3CCACE;
     }
   }
 }
@@ -53,7 +44,6 @@
   width: 280px;
   float: left;
   margin: 0 0 0 40px;
-  background: #f5ecec;
 }
 
 ul.Mypage__Nav__Lists {
@@ -61,18 +51,18 @@ ul.Mypage__Nav__Lists {
   display: block;
   min-height: 48px;
   padding: 16px;
-  background: #fff;
   font-size: 14px;
   color: #333;
 }
 
 .Mypage__Nav__List__Container {
   height: 50px;
-  width: 200px;
+  width: 280px;
   border: 2px solid rgb(218, 212, 212);
-  border-radius: 4%;
+  border-radius: 4px;
   text-align: start;
   padding-top: 15px;
+  background: #fff;
 }
 
 .Destroy__Page {
@@ -96,4 +86,15 @@ ul.Mypage__Nav__Lists {
   border-radius: 50px;
   text-align: center;
   color: #3CCACE;
+}
+
+.Background-Edit {
+  @include background
+}
+
+.Main__Edit__Bar {
+  @include edit-container;
+  &__Container {
+    @include edit-box(#fff);
+  }
 }

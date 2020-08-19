@@ -1,0 +1,62 @@
+.Purchase-Header {
+  height: 100px;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.Purchase__Container{
+  width: 700px;
+  margin: 0 auto 0;
+  background: #fff;
+  overflow: scroll;
+  &__Box{
+    @include purchase-box
+  }
+}
+
+h2.purchase-title {
+  @include purchase-box;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(209, 209, 209, 0.315);
+}
+
+.Products__Over-view {
+  display: flex;
+  justify-content: space-between;
+  &__Total{
+    @include purchase-box;
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(209, 209, 209, 0.315);
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.Products__Price {
+  margin-top: 20px;
+}
+
+.purchase-text {
+  margin-right: 40px;
+}
+
+.Products__Buy__Btn {
+  @include form-input(350px, #fff);
+  background-color: #3CCACE;
+  padding-top: 10px;
+}
+
+.card-infomation {
+  @include form-input(200px, #fff);
+  background-color: #3CCACE;
+  padding-top: 10px;
+}
+
+.Products__Image {
+  margin-right: 20px;
+}

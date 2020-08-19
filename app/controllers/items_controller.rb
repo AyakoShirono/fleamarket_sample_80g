@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  require "payjp"
+  before_action :set_item, only: [:show, :buy, :purchase]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @parents = Category.all.order("id ASC").limit(13)
@@ -58,6 +61,33 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)    
+    
+  def buy
+    card = Card.find_by(user_id: current_user.id)
+    if card.blank?
+      redirect_to controller: "cards", action: 'new'
+    elsif
+      Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
+      @item.update(buyer_id: current_user.id)
+    else
+      redirect_to root_path
+    end
+  end
+
+  def purchase
+    card = current_user.card
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+    Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
+    if @item.update(buyer_id: current_user.id)
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

@@ -71,5 +71,5 @@ group :production do
 end
 
 gem 'devise'
-
+gem 'payjp'
 gem 'ancestry'

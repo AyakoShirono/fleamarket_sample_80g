@@ -1,9 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :set_parents, only: [:new, :create]
-
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
 
   def index
     @items = Item.includes(:images).order('created_at DESC')

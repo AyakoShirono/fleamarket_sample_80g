@@ -8,7 +8,7 @@
         = form_with(model: @user, local: true) do |f|
           = render "devise/shared/error_messages", resource: resource
           .field
-            = f.label :email　
+            = f.label :email
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email"
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?

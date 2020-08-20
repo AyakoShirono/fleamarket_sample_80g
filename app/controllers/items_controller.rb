@@ -1,10 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :set_parents, only: [:new, :create]
-
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
-
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @parents = Category.all.order("id ASC").limit(13)
@@ -25,12 +19,13 @@ class ItemsController < ApplicationController
   end
   
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find(params[:category_id]).children
   end
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+  
 
   def create
     @item = Item.new(item_params)
@@ -46,6 +41,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @images = Image.where(item_id: params[:id])
   end
 
   def update

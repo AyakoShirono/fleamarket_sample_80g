@@ -101,7 +101,8 @@
           .Products__List
             .Products__List__image
               - item.images.each do |image|
-                = image_tag image.src.url, alt: 'notimage', height: '160', width: '210'
+                = image_tag image.src.url
+              -# = image_tag item.image, alt: 'notimage', height: '160', width: '210'
             .Products__List__text
               %h3.name
                 = item.name
@@ -123,7 +124,8 @@
             .Products__List
               .Products__List__image
                 - item.images.each do |image|
-                  = image_tag image.src.url, alt: 'notimage', height: '160', width: '210'
+                  = image_tag image.src.url
+                -# = image_tag @items.src.url, alt: 'notimage', height: '160', width: '210'
               .Products__List__text
                 %h3.name
                   = item.name

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  require "payjp"
+  # require "payjp"
   before_action :set_item, only: [:show, :buy, :purchase]
 
   def index
@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)    
+    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :brand, :size_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping]).merge(user_id: current_user.id)    
   end
 
 end

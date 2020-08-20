@@ -9,6 +9,11 @@
           = render "devise/shared/error_messages", resource: resource
           .Field
             .Field__Text
+              = f.label :nickname, "ユーザー名", class: "Field__Title"
+              %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "text-form"
+          .Field
+            .Field__Text
               = f.label :email
               %br/
             = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-form"
@@ -44,9 +49,9 @@
         %ul.Mypage__Nav__Lists
           %li.Mypage__Nav__List__Container
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Mypage__Nav__List__Container__Item' 
-          %li
-            = link_to "ユーザー情報変更", edit_user_registration_path(current_user), class: 'Mypage__Nav__List__Item'
-          %li
+          %li.Mypage__Nav__List__Container
             = link_to 'プロフィール変更', edit_profile_path(current_user.profile.id), class: 'Mypage__Nav__List__Item'
+          %li.Mypage__Nav__List__Container
+            = link_to 'クレジットカード登録/変更', new_card_path, class: 'Mypage__Nav__List__Item'
   = render 'items/footer'
 

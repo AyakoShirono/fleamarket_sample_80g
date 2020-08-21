@@ -64,7 +64,7 @@ gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "jquery-rails"
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'fog'
+gem 'fog-local'
 gem 'mini_magick'
 gem 'active_hash'
 

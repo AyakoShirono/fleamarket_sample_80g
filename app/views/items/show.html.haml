@@ -4,47 +4,85 @@
     .Item__detail
       .Item__detail__title
         %h3
-          テスト商品
+          = @item.name
       .Item__detail__upper
         .Item__detail__upper__image
           .Item__detail__upper__image__main
-            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '300', width: '220'
+            = image_tag @item.images[0].src.url, alt: 'notimage', height: '280', width: "280"
           .Item__detail__upper__image__sub
-            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
-            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
-            = image_tag 'material/icon/icon-04.png', alt: 'notimage', height: '80', width: '50'
+            - @item.images.each do |image|
+              = image_tag image.src.url, alt: 'notimage', height: '80', width: '80'
         .Item__detail__upper__text
           %table{border: "1", class: "table-text"}
             %tr
               %td 出品者
-              %td チームG
+              %td 
+                =@item.user.nickname
+            %tr
+              %td 詳細
+              %td 
+                = @item.detail
             %tr
               %td カテゴリー
-              %td コスメ
+              %td 
+                = @item.category.parent.parent.name
+                >>
+                = @item.category.parent.name
+                >>
+                = @item.category.name
             %tr
               %td ブランド
-              %td ???
+              %td 
+                = @item.brand
+            %tr
+              %td サイズ
+              %td 
+                = @size.name
             %tr
               %td 商品の状態
-              %td 使用済
+              %td 
+                = @item.condition
             %tr
               %td 配送料の負担
-              %td 購入者負担
+              %td 
+                = @item.shipping.fee_burden
             %tr
               %td 配送方法
-              %td 郵便
+              %td 
+                = @item.shipping.method
             %tr
               %td 配送元地域
-              %td 東京都
+              %td 
+                = @prefecture.name
             %tr
               %td 発送日の目安
-              %td 1〜2日
+              %td 
+                = @item.shipping.period_before_shipping
       .Item__detail__price
         %h3
-          ¥ 1,000 (税込)
-      = link_to '#' do
-        .Purchase__btn
-          %h3
-            購入画面へ進む
+          ¥
+          = @item.price
+          (税込)
+      - if user_signed_in? && current_user.id == @item.user.id
+        .edit_delete_menu
+          = link_to "#" do
+            .edit_btn
+              %h3
+                商品情報を編集
+          = link_to "#" do
+            .delete_btn
+              %h3
+                商品情報を削除
+      - elsif @item.buyer_id.present?
+        = link_to "#" do
+          .soldout__btn
+            %h3
+              売り切れました
+      - elsif user_signed_in?
+        = link_to buy_item_path do
+          .Purchase__btn
+            %h3
+              購入画面へ進む
+      
   = render "footer"
   

@@ -63,6 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "jquery-rails"
 gem 'carrierwave'
+gem 'fog-aws'
+gem 'fog'
 gem 'mini_magick'
 gem 'active_hash'
 
@@ -71,5 +73,5 @@ group :production do
 end
 
 gem 'devise'
-
+gem 'payjp'
 gem 'ancestry'

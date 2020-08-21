@@ -29,7 +29,7 @@
             - if @minimum_password_length
               %em
             %br/
-          = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 文字以内", class: "text-form"
+          = f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} 文字以上", class: "text-form"
         .Field
           .Field__Text
             = f.label :password_confirmation, "パスワード(確認用)", class: "Field__Title"

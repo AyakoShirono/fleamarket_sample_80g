@@ -4,7 +4,7 @@
     .Main__Bar
       .Main__Bar__Container
         %h2
-          ここにユーザー名が入る
+          = current_user.nickname
       .Main__Bar__Contents 
         %ul.Main__Bar__Tabs
           %li.Main__Bar__Tabs__Lists
@@ -14,10 +14,11 @@
       .Main__Bar__Products 
         %ul.Main__Bar__Product
           %li.Main__Bar__Product__List
+            -# 購入した商品一覧を表示
             購入した商品一覧
           %li.Main__Bar__Product__List
+            -# 出品した商品一覧を表示
             出品した商品一覧
-            
     .Side__Bar
       %nav.Mypage__Nav
         %ul.Mypage__Nav__Lists
@@ -28,5 +29,5 @@
           %li.Mypage__Nav__List__Container
             = link_to 'プロフィール変更', edit_profile_path(current_user.profile.id), class: 'Mypage__Nav__List__Item'
           %li.Mypage__Nav__List__Container
-            -# クレジット機能未実装のためリンクを仮置き
-            = link_to 'クレジットカード登録/変更', "#", class: 'Mypage__Nav__List__Item'
+            = link_to 'クレジットカード登録/変更', new_card_path, class: 'Mypage__Nav__List__Item'
+  = render 'items/footer'

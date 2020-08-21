@@ -6,7 +6,6 @@ class Item < ApplicationRecord
   has_one :shipping
   belongs_to :category
 
-
   accepts_nested_attributes_for :images, allow_destroy: true
   accepts_nested_attributes_for :shipping, allow_destroy: true
 

@@ -1,17 +1,25 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+= render 'items/l-header'
+.Box
+  .Box__form
+    .Box__form__text
+      %h2.nav-text 
+        ログイン画面
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .Field
+          .Field__Text
+            = f.label :email
+            %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-form"
+        .Field
+          .Field__Text
+            = f.label :password
+            %br/
+          = f.password_field :password, autocomplete: "current-password", class: "text-form"
+        - if devise_mapping.rememberable?
+          .Field
+            .Field__Text
+              = f.check_box :remember_me
+              = f.label :remember_me
+        .Actions
+          = f.submit "ログイン", class: "Actions__Btn"
+      = render "devise/shared/links"

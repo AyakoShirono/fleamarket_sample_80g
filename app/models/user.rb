@@ -5,4 +5,5 @@ class User < ApplicationRecord
 
   has_many :items
   has_one :profile
+  has_one :card, dependent: :destroy
 end

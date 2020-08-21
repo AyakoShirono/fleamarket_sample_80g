@@ -98,18 +98,17 @@
             新規投稿商品
       .Products__Lists
         - @items.each do |item|
-          .Products__List
-            .Products__List__image
-              - item.images.each do |image|
-                = image_tag image.src.url
-              -# = image_tag item.image, alt: 'notimage', height: '160', width: '210'
-            .Products__List__text
-              %h3.name
-                = item.name
-              %h3.price
-                = item.price
-                %a
-                円
+          = link_to item_path(item.id) do
+            .Products__List
+              .Products__List__image
+                = image_tag item.images[0].src.url, alt: 'notimage', height: '160', width: '210'
+              .Products__List__text
+                %h3.name
+                  = item.name
+                %h3.price
+                  = item.price
+                  %a
+                  円
   .Pickup__box
     %h2.Pickup__Header
       ピックアップブランド
@@ -120,12 +119,10 @@
             アーカイブ
       .Products__Lists
         - @items.each do |item|
-          .Products__List
+          = link_to item_path(item.id) do
             .Products__List
               .Products__List__image
-                - item.images.each do |image|
-                  = image_tag image.src.url
-                -# = image_tag @items.src.url, alt: 'notimage', height: '160', width: '210'
+                = image_tag item.images[0].src.url, alt: 'notimage', height: '160', width: '210'
               .Products__List__text
                 %h3.name
                   = item.name

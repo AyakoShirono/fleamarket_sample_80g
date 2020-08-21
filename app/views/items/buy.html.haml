@@ -7,7 +7,7 @@
     .Purchase__Container__Box
       .Products__Over-view
         .Products__Image
-          = image_tag @item.image, alt: 'notimage', height: '140', width: '180'
+          = image_tag @item.images[0].src.url, alt: 'notimage', height: '180', width: '180'
         .Products__Name
           = @item.name
           .Products__Price

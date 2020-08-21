@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
-
   #require "payjp"
-  before_action :set_item, only: [:show, :buy, :purchase]
+  before_action :set_item, only: [:show, :buy, :purchase, :edit, :update]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -25,12 +24,13 @@ class ItemsController < ApplicationController
   end
   
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find(params[:category_id]).children
   end
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
+  
 
   def create
     @item = Item.new(item_params)
@@ -49,6 +49,12 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      flash.now[:alert] = '更新できませんでした'
+      render :edit
+    end
   end
 
   def destroy
@@ -79,7 +85,9 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :brand, :size_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping]).merge(user_id: current_user.id)    
+    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)
   end
-
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

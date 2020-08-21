@@ -25,3 +25,50 @@
   padding-bottom: 15px;
   position: relative;
 }
+
+@mixin form-input($wsize:350px, $color:#1c1d1f83) {
+  height: 50px;
+  width: $wsize;
+  font-size: 15px;
+  color: $color;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+@mixin template {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+@mixin background($width:1030px) {
+  margin: 40px auto 0;
+  width: $width;
+  height: 100vh;
+}
+
+@mixin edit-container {
+  background: #fff;
+  float: left;
+  width: 700px;
+  height: 100vh;
+}
+
+@mixin edit-box($bcolor:rgb(230, 222, 222)) {
+  padding: 20px 24px;
+  height: 150px;
+  width: 700px;
+  background: $bcolor;
+  text-align: center;
+}
+
+@mixin purchase-box {
+  padding: 32px 16px;
+  margin: 0 auto;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

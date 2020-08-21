@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][src]"
                     id="item_images_attributes_${index}_src"><br>
-                    <div class="js-remove">削除</div>
+                    <span class="js-remove">削除</span>
                   </div>`;
     return html;
   }
@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', ()=> {
     return html;
   }
 
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  var fileIndex = [1,2,3,4,5];
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
@@ -22,7 +22,10 @@ $(document).on('turbolinks:load', ()=> {
   $('#item-image').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
-// 残骸のif(!file){~ 等
+    if(!file){
+      $(`.js-file_group[data-index=${targetIndex}]`).find(".js-remove").trigger("click");
+      return false;
+    }
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -30,10 +33,10 @@ $(document).on('turbolinks:load', ()=> {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       $('#item-image').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1) 
     }
   });
-
+  
   $('#item-image').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);

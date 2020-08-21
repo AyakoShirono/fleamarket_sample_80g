@@ -1,0 +1,28 @@
+.wrapper
+  = render "items/header"
+  .card__new
+    %section.card__information
+      .card__information--header
+        %h1 クレジットカード 新規登録
+      .card__information
+        = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| 
+          %section.top
+            %label カード番号
+            %span 必須
+          = f.text_field :card_number, type: 'text',class: 'card__number',id: 'card_number', placeholder: '16桁の番号', maxlength: '19'
+          = image_tag 'card_5brand.gif', alt: 'notimage', class: 'card-brands', height: '30', width: '220'
+          %section.middle
+            %label 有効期限
+            %span 必須
+          .add__card
+            = f.select :exp_month,[["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} ,id: 'exp_month', class:'card__number'
+            %span 月
+            = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} ,id: 'exp_year', class:'card__number'
+            %span 年
+          %section.bottom
+            %label セキュリティコード
+            %span 必須
+          = f.text_field :cvc, type: 'integer',class:'card__number', id: 'cvc', placeholder: '裏面3〜4桁の番号'
+          .link__btn#card_token
+            = f.submit '登録', class: 'add__card__btn', id: 'token_submit'
+  = render "items/footer"

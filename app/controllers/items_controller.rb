@@ -1,11 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update] 
+  #require "payjp"
+  before_action :set_item, only: [:show, :buy, :purchase, :edit, :update]
+
   def index
     @items = Item.includes(:images).order('created_at DESC')
     @parents = Category.all.order("id ASC").limit(13)
   end
   
   def show
+    @size = Size.find_by(id: @item.size_id)
+    @prefecture = Prefecture.find_by(id: @item.shipping.prefecture_from)
   end
 
   def new
@@ -56,7 +60,29 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def buy # 購入確認画面のアクション
+    card = Card.find_by(user_id: current_user.id)
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+    if card.blank?
+      redirect_to controller: "cards", action: 'new'
+    end
+  end
+
+  def purchase # 実際の購入のアクション
+    card = current_user.card
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+    Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
+    if @item.update(buyer_id: current_user.id)
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)

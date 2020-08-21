@@ -43,7 +43,6 @@ $(function(){
       // 成功した時の処理
       .done(function(children){
             // 元々あった子カテゴリーと孫カテゴリーを消す。
-        // console.log(children);
         $('.listing-select-wrapper--edit__child').remove();
         $('.listing-select-wrapper--edit__grandchild').remove();
             // insertHTMLを定義して中身にオプションをつける。

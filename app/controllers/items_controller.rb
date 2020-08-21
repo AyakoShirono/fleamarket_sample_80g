@@ -46,6 +46,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    # binding.pry
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      flash.now[:alert] = '更新できませんでした'
+      render :edit
+    end
   end
 
   def destroy
@@ -54,7 +62,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)    
+    params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)    
   end
-
 end

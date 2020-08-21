@@ -1,14 +1,43 @@
 = render 'l-header'
 .Edit
   .Edit__contents
-    .Edit__contents__text
-      %h2.Edit__contents__text__title 出品情報の編集
-    .Edit__contents__image
-      - @images.each do |img|
-        .item-image{id:img.id}
-          = image_tag(img.src.url, {width:"100", height:"100"})
     .Edit__contents__main
       = form_with(model: @item, local: true, class: "Edit__contents__main__form") do |f|
+        .sell__block__form
+          .sell__block__form__upload
+            %h3.sell__block__form__upload__head
+              出品画像
+              %span.require 必須
+            %p 最大5枚までアップロードできます
+            .post__drop__box__container
+              .prev-content
+                //JSで挿入したhtmlと同じ形each文でのプレビュー表示
+                - @item.images.each do |image|
+                  .preview-box
+                    .upper-box
+                      = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+                    .lower-box
+                      .update-box
+                        %label.edit-btn 編集
+                      .delete-box
+                        .delete-btn
+                          %span 削除
+              .label-content
+                = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |i|
+
+                  //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                  - if @item.persisted?
+                    %div.js-file_group{data: {index: "= @item.images.count"}}
+                      = i.file_field :src, class: "hidden-field"
+                  - if @item.persisted?
+                    = i.check_box :_destroy, class: "hidden-checkbox"
+
+                  //5つのfile_fieldを準備するに当たって、足りない分を表示
+                - @item.images.length.upto(4) do |i|
+                  %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
         商品名
         = f.text_field :name, clsss: "name"
         価格
@@ -40,4 +69,6 @@
             発送元
             = s.collection_select :prefecture_from, Prefecture.all, :id, :name, class: "prefecture"
             発送までの日数
-            = s.select :period_before_shipping,[['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], class: "period-before-shipping" 
+            = s.select :period_before_shipping,[['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], class: "period-before-shipping"
+        .Edit__btn
+          = f.submit "編集する", class: "Edit__btn__submit"

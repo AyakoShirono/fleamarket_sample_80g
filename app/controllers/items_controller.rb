@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   #require "payjp"
-  before_action :set_item, only: [:show, :buy, :purchase]
+  before_action :set_item, only: [:show, :buy, :purchase, :destroy]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -52,9 +52,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
+    if current_user.id = @item.user_id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path(@item.id)
+    end
   end
 
   def buy # 購入確認画面のアクション

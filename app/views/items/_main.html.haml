@@ -121,16 +121,15 @@
         - @items.each do |item|
           = link_to item_path(item.id) do
             .Products__List
-              .Products__List
-                .Products__List__image
-                  = image_tag item.images[0].src.url, alt: 'notimage', height: '160', width: '210'
-                .Products__List__text
-                  %h3.name
-                    = item.name
-                  %h3.price
-                    = item.price
-                    %a
-                    円
+              .Products__List__image
+                = image_tag item.images[0].src.url, alt: 'notimage', height: '160', width: '210'
+              .Products__List__text
+                %h3.name
+                  = item.name
+                %h3.price
+                  = item.price
+                  %a
+                  円
   .Banner
     .Inside
       %h2.Inside__Title

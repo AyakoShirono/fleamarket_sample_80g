@@ -11,7 +11,7 @@
   position: absolute;
   background-color: #ffffff;
   height:800px;
-  width: 60%;
+  width: 80%;
   margin-top: 50px;
   padding: 30px;
   &__title {
@@ -42,10 +42,10 @@
       justify-content: center;
     }
     .table-text {
-      width: 80%;
+      width: 100%;
     }
     td {
-      padding:10px 0;
+      padding:5px 0;
     }
   }
   &__price {
@@ -54,6 +54,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
     h3 {
       font-size: 20px;
     }
@@ -67,9 +68,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
   h3 {
     font-size:24px;
     font-weight: bold;
     color: white
+  }
+}
+
+.soldout__btn {
+  background-color: gray;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  h3 {
+    font-size:24px;
+    font-weight: bold;
+    color: white
+  }
+}
+
+.edit_delete_menu {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.edit_btn {
+  background-color: lightseagreen;
+  h3 {
+    color: white;
+    font-size: 24px;
+    padding: 5px;
+    border: 1px solid black;
+  }
+}
+
+.delete_btn {
+  background-color: lightseagreen;
+  h3 {
+    color: white;
+    font-size: 24px;
+    padding: 5px;
+    border: 1px solid black;
   }
 }

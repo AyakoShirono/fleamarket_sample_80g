@@ -9,7 +9,7 @@
           %section.top
             %label カード番号
             %span 必須
-          = f.text_field :card__number, type: 'text',class: 'card__number',id: 'card_number', placeholder: '16桁の番号', maxlength: '19'
+          = f.text_field :card_number, type: 'text',class: 'card__number',id: 'card_number', placeholder: '16桁の番号', maxlength: '19'
           = image_tag 'card_5brand.gif', alt: 'notimage', class: 'card-brands', height: '30', width: '220'
           %section.middle
             %label 有効期限

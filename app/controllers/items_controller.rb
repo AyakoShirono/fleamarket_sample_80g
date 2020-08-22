@@ -82,10 +82,13 @@ class ItemsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
     Payjp::Charge.create(amount: @item.price, customer: card.customer_id, currency: 'jpy')
     if @item.update(buyer_id: current_user.id)
-      redirect_to root_path
+      redirect_to purchased_item_path
     else
       redirect_to root_path
     end
+  end
+
+  def purchased
   end
 
   private
@@ -96,7 +99,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)
   end
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  
 end

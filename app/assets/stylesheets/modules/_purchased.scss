@@ -1,0 +1,23 @@
+.Purchased__Page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchased__item {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.top-page {
+  height: 50px;
+  width: 150px;
+  background-color: #3CCACE;
+  border-radius: 50px;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+}

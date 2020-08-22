@@ -13,7 +13,7 @@
         %p 
           5枚までアップロードできます
         = form_for @item do |f|
-          .Item__input__form#item-image
+          .Item__input__img#item-image
             #previews
               - if @item.persisted?
                 = @item.images.each_whith_index do |image, i|
@@ -28,14 +28,14 @@
             -if @item.persisted?
               %div.js-file_group{data: {index: "= @item.images.count"}}
                 = file_field_tag :src, name: 'item[images_attributes][#{@item.images.count}][src]', class: 'js-file'
-                %span.js-remove
+                %span.js-remove 
                   削除
           %div
             %span
               商品名
             %h2.form-require.Item__info
               必須
-          = f.text_field :name, class: 'Item__input__form'
+          = f.text_field :name, placeholder: '40字まで', class: 'Item__input__form'
           %div
             %span 価格
             %h2.form-require.Item__info
@@ -45,7 +45,7 @@
             %span 商品説明
             %h2.form-require.Item__info
               必須
-          = f.text_area :detail, size: '50x10', class: 'Item__input__text'
+          = f.text_area :detail, placeholder: '商品の説明（色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', size: '50x10', class: 'Item__input__text'
           %div
             %span 商品の状態
             %h2.form-require.Item__info
@@ -63,22 +63,35 @@
                   = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
                   %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
           %p ブランド
-          = f.text_field :brand, class: 'Item__input__form'
+          = f.text_field :brand, placeholder: '例)シャネル', class: 'Item__input__form'
           %div
             %span サイズ
             %h2.form-require.Item__info
               必須
-          = f.collection_select :size_id, Size.all, :id, :name, include_blank: '選択してください', class: 'Item__input__form'
+          = f.collection_select :size_id, Size.all, :id, :name, include_blank: '選択してください', class: 'Item__input__select'
           %p 発送について
           = f.fields_for :shipping do |s|
-            %p 発送方法
-            = s.select :method, [['未定'], ['らくらくメルカリ便'], ['ゆうゆうメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定型、不定型)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'], ['ゆうパケット']], class: 'Item__input__form'
-            %p 発送元
-            = s.collection_select :prefecture_from, Prefecture.all, :id, :name, include_blank: '選択してください', class: 'Item__input__form'
-            %p 発送までの日数
-            = s.select :period_before_shipping, [['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], include_blank: '選択してください', class: 'Item__input__form'
-            %p 送料負担
-            = s.select :fee_burden, [['送料込み (出品者負担)'], ['着払い(購入者負担)']], include_blank: '選択してください', class: 'Item__input__form'
+            %div
+              %span 発送方法
+              %h2.form-require.Item__info
+                必須
+            = s.select :method, [['未定'], ['らくらくメルカリ便'], ['ゆうゆうメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定型、不定型)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'], ['ゆうパケット']], class: 'Item__input__serect'
+            %div
+              %span 発送元
+              %h2.form-require.Item__info
+                必須
+            = s.collection_select :prefecture_from, Prefecture.all, :id, :name, include_blank: '選択してください', class: 'Item__input__select'
+            %div
+              %span 発送までの日数
+              %h2.form-require.Item__info
+                必須
+            = s.select :period_before_shipping, [['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], include_blank: '選択してください', class: 'Item__input__select'
+            %div
+              %span 送料負担
+              %h2.form-require.Item__info
+                必須
+            = s.select :fee_burden, [['送料込み (出品者負担)'], ['着払い(購入者負担)']], include_blank: '選択してください', style: 'width 300px', class: 'Item__input__select'
           = f.submit '出品する', class: 'Item__input__btn'
           
 = render 'items/footer'
+

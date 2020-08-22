@@ -72,3 +72,10 @@
   justify-content: center;
   text-align: center;
 }
+
+@mixin select-form {
+  width: 300px;
+  height: 30px;
+  border: solid 1px darkgrey;
+  border-radius: 3px;
+}

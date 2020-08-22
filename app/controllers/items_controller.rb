@@ -26,6 +26,12 @@ class ItemsController < ApplicationController
   
   def get_category_children
     @category_children = Category.find(params[:category_id]).children
+<<<<<<< Updated upstream
+=======
+  end
+  def get_category_child
+    @category_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+>>>>>>> Stashed changes
   end
 
   def get_category_grandchildren

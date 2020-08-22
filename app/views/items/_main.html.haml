@@ -108,7 +108,11 @@
                 %h3.price
                   = item.price
                   %a
-                  円
+                    円
+              - if item.buyer_id.present?
+                %h3.soldout
+                  売切
+
   .Pickup__box
     %h2.Pickup__Header
       ピックアップブランド
@@ -129,7 +133,10 @@
                 %h3.price
                   = item.price
                   %a
-                  円
+                    円
+                - if item.buyer_id.present?
+                  %h3.soldout
+                    売切
   .Banner
     .Inside
       %h2.Inside__Title

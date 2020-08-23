@@ -184,6 +184,10 @@ h3.title {
   justify-content: space-around;
 }
 
+.Products__List__text {
+  text-align: center;
+}
+
 .Banner {
   background-image: image-url('material/pict/bg-appBanner-pict.jpg');
   background-size: cover;
@@ -248,4 +252,5 @@ p.Inside__Text {
 .soldout {
   color: red;
   font-weight: bold;
+  text-align: center;
 }

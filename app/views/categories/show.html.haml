@@ -1,0 +1,18 @@
+= render 'items/l-header'
+.Category__show
+  .Category-item
+    .Category-item__title
+      = "#{@category.name}の商品一覧"
+    - @items.each do |item|
+      .Category-item__box
+        .Items__List
+          .Items__List__image
+            = image_tag item.images[0].src.url, alt: 'notimage', height: '160', width: '210'
+          .Items__List__text
+            %h3.Name
+              = link_to item.name, item_path(item.id)
+            %h3.Price
+              = item.price
+              %a
+                円
+= render 'items/footer'

@@ -5,6 +5,8 @@ require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
   if Rails.env.development? || Rails.env.test?
     config.storage = :file
+    config.fog_directory  = 'fleamarket80g'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fleamarket80g'
   else
     config.storage = :fog
     config.fog_provider = 'fog/aws'
@@ -19,4 +21,4 @@ CarrierWave.configure do |config|
 
     config.fog_directory  = 'fleamarket80g'
     
-  end
+end

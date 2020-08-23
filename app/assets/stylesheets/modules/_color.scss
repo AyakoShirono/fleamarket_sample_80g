@@ -79,3 +79,21 @@
   border: solid 1px darkgrey;
   border-radius: 3px;
 }
+// [必須]を赤色にする
+@mixin red($height:25px, $width:35px, $bcolor: red, $padding: 2px 0 0 2px) {
+  height: $height;
+  width: $width;
+  background-color: $bcolor;
+  color: #f5f5f5;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: $padding;
+  margin-left: 10px;
+}
+// 商品編集の入力フォーム
+@mixin edit-items-form {
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #bebdbd;
+}

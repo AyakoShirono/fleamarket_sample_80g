@@ -21,15 +21,15 @@
               %ul.Drop__menu__root
                 - @parents.roots.each do |parent|
                   %li
-                    = link_to parent.name, "#"
+                    = link_to parent.name, category_path(parent.id)
                     %ul
                       - parent.children.each do |child|
                         %li
-                          = link_to child.name, "#"
+                          = link_to child.name, category_path(child.id)
                           %ul
                             - child.children.each do |grandchild|
                               %li
-                                = link_to grandchild.name, "#"
+                                = link_to grandchild.name, category_path(grandchild.id)
         %li.Header__container__nav__dropdown__brand
           ブランド
       %ul.Header__container__nav__user-menu

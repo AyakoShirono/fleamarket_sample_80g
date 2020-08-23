@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy] 
   resources :profiles, only: [:edit, :update]
   resources :cards, only: [:new, :create, :show, :destroy]
+  resources :categories, only: [:show]
   
 end

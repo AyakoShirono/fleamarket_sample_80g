@@ -33,7 +33,7 @@ $(function(){
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
       $.ajax({
-        url: 'get_category_children',
+        url: 'get_category_child',
         type: 'GET',
         data: { parent_name: parentCategory },
         dataType: 'json'

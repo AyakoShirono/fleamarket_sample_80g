@@ -156,12 +156,3 @@ $(document).on('turbolinks:load', function(){
   });
 });
 
-// jQuery(window).load(function() {
-//   $('.fixBox').each(function(i, box) {
-//       var maxHeight = 0;
-//       $(box).find('.fixItem').each(function() {
-//           if ($(this).height() > maxHeight) maxHeight = $(this).height();
-//       });
-//       $(box).find('.fixItem').height(maxHeight);
-//   });
-// });

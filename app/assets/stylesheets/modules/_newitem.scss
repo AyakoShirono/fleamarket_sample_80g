@@ -1,4 +1,4 @@
-.Item {
+.Item__input {
   width: 100vw;
   background-color: #f5f5f5;
   &__contents {
@@ -16,7 +16,7 @@
   }
 }
 
-.Item__input {
+.Item__input__box {
   display: flex;
   display: block;
   &__form {

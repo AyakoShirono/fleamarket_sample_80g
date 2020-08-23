@@ -1,12 +1,75 @@
-.Item__contents {
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.Item__field {
+  width: 100vw;
+  background-color: #f5f5f5;
+  &__contents {
+    margin-left: auto;
+    margin-right: auto;
+    &__container {
+      width: 700px;
+      padding: 20px 0 40px;
+      background-color: white;
+      overflow: scroll;
+    }
+  }
+  &__info {
+    display: inline;
   }
 }
-.Item__input-form {
+
+.Item__input {
   display: flex;
   display: block;
-  width: 600px;
+  &__form {
+    width: 400px;
+    height: 30px;
+    border: solid 1px darkgrey;
+    border-radius: 3px;
+  }
+  &__text {
+    border: solid 1px darkgrey;
+    border-radius: 3px;
+  }
+  &__btn {
+    height: 50px;
+    width: 350px;
+    background-color: #3CCACE;
+    border-radius: 5px;
+    border: none;
+    color: #f5f5f5;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#item_shipping_attributes_prefecture_from {
+  @include select-form;
+}
+#item_condition {
+  @include select-form;
+}
+#item_shipping_attributes_period_before_shipping {
+  @include select-form;
+}
+#item_shipping_attributes_fee_burden {
+  @include select-form;
+}
+#item_shipping_attributes_method {
+  @include select-form;
+}
+#item_size_id {
+  @include select-form;
+}
+#parent_category {
+  @include select-form;
+}
+.js-remove {
+  height: 25px;
+  width: 35px;
+  background-color: darkgrey;
+  font-size: 13px;
+  border-radius: 3px;
+  padding: 2px 0 0 2px;
+  margin-left: 10px;
+  display: inline;
 }

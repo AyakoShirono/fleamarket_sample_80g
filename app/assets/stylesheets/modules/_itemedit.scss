@@ -185,12 +185,12 @@ h3.sell__block__form__upload__head {
 }
 
 .listing-select-wrapper--edit__parent--select {
-  height: 30px;
+  @include edit-items-form;
   margin-bottom: 5px;
 }
 
 #child_category_edit {
-  height: 30px;
+  @include edit-items-form;
   margin-bottom :5px;
 }
 
@@ -203,4 +203,5 @@ h3.sell__block__form__upload__head {
   width: 320px;
   border-radius: 5px;
   border: 1px solid #bebdbd;
+  @include edit-items-form;
 }

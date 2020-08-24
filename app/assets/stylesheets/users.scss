@@ -46,17 +46,6 @@
   }
 }
 
-.Main__Bar__Product {
-  display: flex;
-  &__List {
-    width: 100%;
-    height: 100%;
-    background-color: #cfd1d1ad;
-    border: 1px solid #f5ecec94;
-    overflow: scroll;
-  }
-}
-
 .Side__Bar {
   width: 280px;
   float: left;

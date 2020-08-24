@@ -33,7 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
-    redirect_to root_path
+    redirect_to root_path, notice: "ユーザー登録が完了しました"
   end
 
   # GET /resource/edit

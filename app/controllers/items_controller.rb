@@ -43,8 +43,9 @@ class ItemsController < ApplicationController
       @category_parent_array << parent.name
     end
       if @item.save
-        redirect_to root_path
+        redirect_to root_path, notice: "出品が完了しました"
       else
+        flash.now[:alert] = '出品できませんでした'
         redirect_to new_item_path
       end
   end
@@ -54,7 +55,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to item_path(item_params), notice: "編集が完了しました"
     else
       flash.now[:alert] = '更新できませんでした'
       render :edit

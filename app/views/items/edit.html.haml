@@ -1,6 +1,7 @@
 = render 'l-header'
 .Edit
   .Edit__contents
+    %h3.Edit__contents__title 商品情報入力
     .Edit__contents__main
       = form_with(model: @item, local: true, class: "Edit__contents__main__form") do |f|
         .sell__block__form
@@ -8,7 +9,8 @@
             %h3.sell__block__form__upload__head
               出品画像
               %span.require 必須
-            %p 最大5枚までアップロードできます
+            %h3.sell__block__form__upload__head
+              最大5枚までアップロードできます
             .post__drop__box__container
               .prev-content
                 //JSで挿入したhtmlと同じ形each文でのプレビュー表示
@@ -27,7 +29,6 @@
                   %pre.label-box__text-visible クリックしてファイルをアップロード
               .hidden-content
                 = f.fields_for :images do |i|
-
                   //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
                   - if @item.persisted?
                     %div.js-file_group{data: {index: "= @item.images.count"}}
@@ -38,19 +39,26 @@
                   //5つのfile_fieldを準備するに当たって、足りない分を表示
                 - @item.images.length.upto(4) do |i|
                   %input{name: "item[images_attributes][#{i}][src]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
-        商品名
-        = f.text_field :name, clsss: "name"
-        価格
+        .display
+          .display__flex 商品名
+          %span.require 必須
+        = f.text_field :name, class: "name"
+        .display
+          .display__flex 価格
+          %span.require 必須
         = f.text_field :price, class: "price"
-        商品説明
-        = f.text_area:detail, class: "detail"
-        商品の状態
+        .display
+          .display__flex 商品説明
+          %span.require 必須
+        = f.text_area:detail, placeholder: "商品の説明（色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "detail"
+        .display
+          .display__flex 商品の状態
+          %span.require 必須
         = f.select :condition, [['新品、未使用'], ['未使用に近い'], ['目立った傷や汚れなし'], ['やや傷や汚れあり'], ['傷や汚れあり'], ['全体的に状態が悪い']], size: '50x10', class: "condition"
         カテゴリー
         .listing-form-box
           .listing-product-detail__category
             = f.label 'カテゴリー', class: 'listing-default__label'
-            %span.listing-default--require 必須
             .listing-select-wrapper--edit
               .listing-select-wrapper--edit__parent
                 = f.collection_select :category_id, Category.roots, :id, :name ,{prompt: "選択してください", selected:  @item.category.parent.parent_id}, {class: 'listing-select-wrapper--edit__parent--select', id: 'parent_category_edit', name: "" }
@@ -58,17 +66,29 @@
                 = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.parent_id}, {class: 'listing-select-wrapper--edit__child--select', id: 'child_category_edit', name: "" }
               .listing-select-wrapper--edit__grandchild
                 = f.collection_select :category_id,@item.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.id}, {class: 'listing-select-wrapper--edit__grandchild--select', id: 'grandchild_category_edit', name: "item[category_id]" }
-        ブランド
+        .display
+          .display__flex ブランド
+          %span.any 任意
         = f.text_field :brand, class: "brand"
-        サイズ
+        .display
+          .display__flex サイズ
+          %span.require 必須
         = f.collection_select :size_id, Size.all, :id, :name, class: "size"
-        .Edit__contents__main__form__shipping
-          = f.fields_for :shipping do |s|
-            発送方法
-            = s.select :method, [['未定'], ['らくらくメルカリ便'], ['ゆうゆうメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定型、不定型)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'], ['ゆうパケット']],class: "method"
-            発送元
-            = s.collection_select :prefecture_from, Prefecture.all, :id, :name, class: "prefecture"
-            発送までの日数
-            = s.select :period_before_shipping,[['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], class: "period-before-shipping"
-        .Edit__btn
-          = f.submit "編集する", class: "Edit__btn__submit"
+        .Edit__shipping
+          %h3.Edit__contents__title 発送について
+          .Edit__contents__main__form__shipping
+            = f.fields_for :shipping do |s|
+              .display
+                .display__flex 発送方法
+                %span.require 必須
+              = s.select :method, [['未定'], ['らくらくメルカリ便'], ['ゆうゆうメルカリ便'],['ゆうメール'],['レターパック'],['普通郵便(定型、不定型)'],['クロネコヤマト'],['ゆうパック'],['クリックポスト'], ['ゆうパケット']],class: "method"
+              .display
+                .display__flex 発送元
+                %span.require 必須
+              = s.collection_select :prefecture_from, Prefecture.all, :id, :name, class: "prefecture"
+              .display
+                .display__flex 発送までの日数
+                %span.require 必須
+              = s.select :period_before_shipping,[['1〜2日で発送'], ['2〜3日で発送'], ['4〜7日で発送']], class: "period-before-shipping"
+        .Edit__Btn
+          = f.submit "編集する", class: "Edit__Btn__Submit"

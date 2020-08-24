@@ -24,28 +24,25 @@
     width: 100%;
     height: 80px;
     background: #fff;
-    display: flex;
-    justify-content: space-between;
     border: 2px solid #cfd1d1ad;
     font-weight: bold;
     &__Lists {
-
       border: 1px solid #33333349;
       text-align: center;
-      width: 50%;
-      padding-top: 20px;
+      width: 100%;
+      height: 100%;
+      font-size: 20px;
     }
-  }
-}
-
-.Main__Bar__Product {
-  display: flex;
-  &__List {
-    width: 100%;
-    height: 100%;
-    background-color: #cfd1d1ad;
-    border: 1px solid #f5ecec94;
-    overflow: scroll;
+    &__List {
+      height: 80px;
+      border: 1px solid #cfd1d1ad;
+      display: flex;
+      justify-content: center;
+      &__Bar {
+        height: 100%;
+        text-align: center;
+      }
+    }
   }
 }
 

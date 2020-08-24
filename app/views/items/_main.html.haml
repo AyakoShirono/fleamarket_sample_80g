@@ -91,11 +91,11 @@
   .Pickup__box
     %h2.Pickup__Header
       ピックアップカテゴリー
+    .Products__Header
+      = link_to '#' do
+        %h3.title
+          新規投稿商品
     .Products__container
-      .Products__Header
-        = link_to '#' do
-          %h3.title
-            新規投稿商品
       .Products__Lists
         - @items.each do |item|
           = link_to item_path(item.id) do
@@ -116,11 +116,11 @@
   .Pickup__box
     %h2.Pickup__Header
       ピックアップブランド
+    .Products__Header
+      = link_to '#' do
+        %h3.title
+          アーカイブ
     .Products__container
-      .Products__Header
-        = link_to '#' do
-          %h3.title
-            アーカイブ
       .Products__Lists
         - @items.each do |item|
           = link_to item_path(item.id) do

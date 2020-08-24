@@ -6,19 +6,39 @@
         %h2.Main__Bar__Username
           = current_user.nickname
       .Main__Bar__Contents 
-        %ul.Main__Bar__Tabs
-          %li.Main__Bar__Tabs__Lists
-            購入した商品
-          %li.Main__Bar__Tabs__Lists
-            出品した商品
-      .Main__Bar__Products 
-        %ul.Main__Bar__Product
-          %li.Main__Bar__Product__List
-            -# 購入した商品一覧を表示
-            購入した商品一覧
-          %li.Main__Bar__Product__List
-            -# 出品した商品一覧を表示
-            出品した商品一覧
+        .Main__Bar__Tabs
+          %ul.Main__Bar__Tabs__Lists
+            お知らせ
+          %li.Main__Bar__Tabs__List
+            = link_to '#' do
+              .Main__Bar__Tabs__List__Bar
+                = image_tag 'material/logo/logo.png', alt: 'notimage', height: '30', width: '65', class: ''
+                %h3.notice
+                  1,000円分のポイントGETのチャンス！時間がない方はバーコード出品でさくっと出品しよう♪
+          %li.Main__Bar__Tabs__List
+            = link_to '#' do
+              .Main__Bar__Tabs__List__Bar
+                = image_tag 'material/logo/logo.png', alt: 'notimage', height: '30', width: '65', class: ''
+                %h3.notice
+                  購入も出品もしなくてOK！必ずP300もらえる！
+          %li.Main__Bar__Tabs__List
+            = link_to '#' do
+              .Main__Bar__Tabs__List__Bar
+                = image_tag 'material/logo/logo.png', alt: 'notimage', height: '30', width: '65', class: ''
+                %h3.notice
+                  購入も出品もしなくてOK！かんたん操作で300円分のポイントもらえる！
+          %li.Main__Bar__Tabs__List
+            = link_to '#' do
+              .Main__Bar__Tabs__List__Bar
+                = image_tag 'material/logo/logo.png', alt: 'notimage', height: '30', width: '65', class: ''
+                %h3.notice
+                  FURIMA、かわいい雑貨はじめました！全国のローソンにてFURIMAオリジナル雑貨販売中♪
+          %li.Main__Bar__Tabs__List
+            = link_to '#' do
+              .Main__Bar__Tabs__List__Bar
+                = image_tag 'material/logo/logo.png', alt: 'notimage', height: '30', width: '65', class: ''
+                %h3.notice
+                  FamiPayでお買い物をするとFamiPayボーナスを最大2000円相当還元！キャンペーン開催中♪
     .Side__Bar
       %nav.Mypage__Nav
         %ul.Mypage__Nav__Lists

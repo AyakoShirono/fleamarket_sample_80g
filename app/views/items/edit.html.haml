@@ -49,8 +49,8 @@
         = f.text_field :price, class: "price"
         .display
           .display__flex 商品説明
-          %span.require 必須商
-        = f.text_area:detail, class: "detail"
+          %span.require 必須
+        = f.text_area:detail, placeholder: "商品の説明（色、素材、重さ、定価、注意点など) 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "detail"
         .display
           .display__flex 商品の状態
           %span.require 必須
@@ -59,7 +59,6 @@
         .listing-form-box
           .listing-product-detail__category
             = f.label 'カテゴリー', class: 'listing-default__label'
-            %span.require 必須
             .listing-select-wrapper--edit
               .listing-select-wrapper--edit__parent
                 = f.collection_select :category_id, Category.roots, :id, :name ,{prompt: "選択してください", selected:  @item.category.parent.parent_id}, {class: 'listing-select-wrapper--edit__parent--select', id: 'parent_category_edit', name: "" }

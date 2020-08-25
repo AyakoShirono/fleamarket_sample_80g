@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
     if card.blank?
-      redirect_to controller: "cards", action: 'new'
+      redirect_to controller: "cards", action: 'new' and return
     end
     if @item.buyer_id.present? || current_user.id == @item.user_id
       redirect_to root_path, notice: "不正なアクセスです"

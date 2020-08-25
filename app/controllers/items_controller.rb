@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #require "payjp"
-
   before_action :set_item, only: [:show, :buy, :purchase, :edit, :update, :destroy]
+  before_action :not_edit, only: [:edit, :update]
   before_action :move_to_index, except: [:index, :show]
 
   def index
@@ -46,8 +46,7 @@ class ItemsController < ApplicationController
       if @item.save
         redirect_to root_path, notice: "出品が完了しました"
       else
-        flash.now[:alert] = '出品できませんでした'
-        redirect_to new_item_path
+        redirect_to new_item_path, alert: "出品に失敗しました"
       end
   end
 
@@ -58,10 +57,10 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(item_params), notice: "編集が完了しました"
     else
-      flash.now[:alert] = '更新できませんでした'
-      render :edit
+      redirect_to edit_item_path(item_params), alert: "編集に失敗しました"
     end
   end
+  
 
   def destroy
     if current_user.id == @item.user_id && @item.destroy
@@ -104,6 +103,12 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)
+  end
+
+  def not_edit
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to action: :index
+    end
   end
   
   def move_to_index

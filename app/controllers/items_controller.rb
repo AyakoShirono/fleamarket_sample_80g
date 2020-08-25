@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #require "payjp"
   before_action :set_item, only: [:show, :buy, :purchase, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit]
+  before_action :move_to_index, only: [:edit, :update]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
       if @item.save
         redirect_to root_path
       else
-        redirect_to new_item_path
+        redirect_to new_item_path, alert: "出品に失敗しました"
       end
   end
 
@@ -56,10 +56,10 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(item_params), notice: "編集が完了しました"
     else
-      flash.now[:alert] = '更新できませんでした'
-      render :edit
+      redirect_to edit_item_path(item_params), alert: "編集に失敗しました"
     end
   end
+  
 
   def destroy
     if current_user.id == @item.user_id && @item.destroy

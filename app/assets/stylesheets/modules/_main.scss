@@ -168,6 +168,12 @@ h2.Pickup__Header {
 
 .Products__container {
   overflow-x: scroll;
+  display: flex;
+}
+
+.Products__Lists {
+  margin: 26px 0;
+  display: flex;
 }
 
 a {
@@ -179,13 +185,6 @@ h3.title {
   color: #3CCACE;
   font-weight: bold;
   text-decoration: none;
-}
-
-.Products__Lists {
-  width: 780px;
-  margin: 26px auto;
-  display: flex;
-  justify-content: space-around;
 }
 
 .Products__List__text {

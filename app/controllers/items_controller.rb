@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   #require "payjp"
   before_action :set_item, only: [:show, :buy, :purchase, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit, :update]
+  before_action :not_edit, only: [:edit, :update]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -100,7 +100,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :detail, :condition, :category_id, :category, :brand, :size_id, images_attributes: [:src, :_destroy, :id], shipping_attributes: [:fee_burden, :method, :prefecture_from, :period_before_shipping, :id]).merge(user_id: current_user.id)
   end
 
-  def move_to_index
+  def not_edit
     unless user_signed_in? && current_user.id == @item.user_id
       redirect_to action: :index
     end

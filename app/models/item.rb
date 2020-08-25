@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   validates :name, :price, :detail, :condition, :category_id, :size_id, presence: true
+  validates :images, length: { minimum: 1, maximum: 5}
 
   belongs_to :user, foreign_key: 'user_id'
   has_many :images, dependent: :destroy

@@ -10,9 +10,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    sign_in(current_user, bypass: true)
-    redirect_to user_path
+    if current_user.update(user_params)
+      sign_in(current_user, bypass: true)
+      redirect_to user_path, notice: "更新が完了しました"
+    else
+      redirect_to  edit_user_registration_path(current_user), alert: "更新できませんでした"
+    end
   end
 
   def destroy
